@@ -1,0 +1,49 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.divisosofttech.intrack.holisticlearningframework</groupId>
+  <artifactId>HolisticLearningFramework</artifactId>
+  <packaging>war</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>HolisticLearningFramework</name>
+  <url>http://maven.apache.org</url>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+ <build>
+        <plugins>
+            <!-- Tomcat Plugin for automatic deployment -->
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat10-maven-plugin</artifactId>
+                <version>2.2</version> <!-- Keep the version appropriate for your Tomcat version -->
+                <configuration>
+                    <url>http://localhost:8080/</url> <!-- Update to your Tomcat URL -->
+                    <server>TomcatServer</server> <!-- Refers to the server in settings.xml -->
+                    <path>/admin</path> <!-- Context path for your web application -->
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.4.0</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml> <!-- Disable the requirement for web.xml -->
+                </configuration>
+            </plugin>
+
+           
+            
+        </plugins>
+    </build>
+    <properties>
+        <tomcat.username>tomcat-user</tomcat.username>
+        <tomcat.password>password</tomcat.password>
+    </properties>
+
+</project>
