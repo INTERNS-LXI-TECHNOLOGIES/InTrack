@@ -15,35 +15,25 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
- <build>
-        <plugins>
-            <!-- Tomcat Plugin for automatic deployment -->
+  <build>
+  <plugins>
             <plugin>
                 <groupId>org.apache.tomcat.maven</groupId>
-                <artifactId>tomcat10-maven-plugin</artifactId>
-                <version>2.2</version> <!-- Keep the version appropriate for your Tomcat version -->
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.2</version>
+                
                 <configuration>
-                    <url>http://localhost:8080/</url> <!-- Update to your Tomcat URL -->
-                    <server>TomcatServer</server> <!-- Refers to the server in settings.xml -->
-                    <path>/admin</path> <!-- Context path for your web application -->
+                  <url>http://localhost:8080/manager/text</url>
+                  <server>TomcatServer</server>
+                  <username>robot</username>
+                  <password>pass</password>
+                  <path>/HolisticLearningFramework-1.0-SNAPSHOT</path>
+                  
+                <failOnMissingWebXml>false</failOnMissingWebXml> <!-- Disable requirement for web.xml -->
+          
                 </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>3.4.0</version>
-                <configuration>
-                    <failOnMissingWebXml>false</failOnMissingWebXml> <!-- Disable the requirement for web.xml -->
-                </configuration>
-            </plugin>
-
-           
-            
-        </plugins>
-    </build>
-    <properties>
-        <tomcat.username>tomcat-user</tomcat.username>
-        <tomcat.password>password</tomcat.password>
-    </properties>
-
+                    </plugin>
+            </plugins>
+    <finalName>HolisticLearningFramework-1.0-SNAPSHOT</finalName>
+  </build>
 </project>
