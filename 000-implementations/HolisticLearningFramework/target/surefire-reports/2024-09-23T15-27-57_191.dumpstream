@@ -1,0 +1,5 @@
+# Created at 2024-09-23T15:27:57.391
+Boot Manifest-JAR contains absolute paths in classpath 'D:\PROJECT\Git\InTrack\000-implementations\HolisticLearningFramework\target\test-classes'
+Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
+'other' has different root
+
