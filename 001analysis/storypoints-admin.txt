@@ -1,0 +1,68 @@
+Admin Page Documentation
+Overview
+The Admin Page is designed to provide administrative users with a set of tools to manage the users of the system. It offers capabilities to view, add, edit, delete users, and manage their roles, along with providing a dashboard overview of system metrics.
+
+Features and Functionalities
+1. View Users
+Description: The admin can view a comprehensive list of all users in the system.
+Details Displayed:
+Name: Full name of the user.
+Email: Email address used for login and notifications.
+Role: The role assigned to the user (Admin, Moderator, User, etc.).
+Purpose: This allows the admin to monitor all registered users in one place and provides insight into the roles assigned within the system.
+2. Search/Filter Users
+Description: The admin can search or filter the user list based on specific criteria.
+Searchable Criteria:
+Name: Admin can search by the user’s name.
+Role: Users can be filtered based on their roles (e.g., Admin, User, Moderator).
+Status: Filter by active or inactive users.
+Purpose: Helps the admin to easily find specific users in large datasets by narrowing down the list to relevant users based on input.
+3. Add User
+Description: The admin can add new users to the system by filling out the required fields.
+Required Fields:
+Name: Full name of the new user.
+Email: Unique email address for the user.
+Password: A secure password for account access.
+Role: Assign a role (Admin, Moderator, User, etc.).
+Validation:
+Ensure that the email is unique and properly formatted.
+The password must meet security requirements (e.g., minimum length, special characters).
+Purpose: This functionality allows the admin to onboard new users into the system quickly.
+4. Edit User
+Description: The admin can update existing user information.
+Editable Fields:
+Name: The user’s full name.
+Email: Update or correct the email address.
+Role: Change the user’s role in the system (e.g., promote from User to Admin).
+Password: Admin can reset the user’s password, which can be automatically generated or manually set.
+Purpose: Allows administrators to correct user details or adjust their roles within the system as needed.
+5. Delete User
+Description: The admin can remove a user from the system.
+Steps:
+A confirmation prompt must appear to ensure the admin confirms the deletion.
+Once confirmed, the user will be permanently removed from the system.
+Warning: All user-related data will be deleted along with the user profile (optional, depending on system requirements).
+Purpose: This provides the admin with control to manage and clean up the user base by removing inactive or unnecessary accounts.
+6. Role Management
+Description: The admin has the capability to assign or modify user roles.
+Roles Available:
+Admin: Full control over the system.
+Moderator: Limited admin privileges for managing content or users.
+User: Basic access to the system.
+Purpose: Roles define user access and permissions within the system. This allows the admin to maintain security by ensuring that users have the appropriate level of access.
+7. Dashboard Access
+Description: The admin can view an overview of system metrics from the dashboard.
+Metrics Available:
+Total Users: Displays the total number of users registered in the system.
+Active Users: Displays the number of users who are currently active.
+New Registrations: Number of new users added within a specified timeframe.
+Role Distribution: A breakdown of how many users are in each role (Admin, Moderator, User, etc.).
+Purpose: This dashboard provides admins with an at-a-glance overview of system usage and user activity, helping to manage the system effectively.
+Conclusion
+The Admin Page provides full control over user management and role assignment, enabling the admin to maintain the integrity and security of the system. With features like user viewing, adding, editing, deleting, and role management, along with a dashboard overview, the admin can efficiently oversee system operations and ensure that user roles are appropriately assigned.
+
+
+
+
+
+
