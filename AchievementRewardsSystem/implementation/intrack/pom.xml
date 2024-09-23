@@ -2,7 +2,7 @@
 <!--  Project information  -->
 <modelVersion>4.0.0</modelVersion>
 <groupId>com.lxisoft</groupId>
-<artifactId>internsassist</artifactId>
+<artifactId>intrack</artifactId>
 <version>1.0</version>
 <packaging>war</packaging>
 <name>internsassist Maven Webapp</name>
@@ -31,7 +31,7 @@
 </dependencies>
 <!--  Build configuration  -->
 <build>
-<finalName>internsassist</finalName>
+<finalName>intrack</finalName>
 <plugins>
 <!--  Plugin to package the web application  -->
 <plugin>
@@ -56,7 +56,7 @@
 <!--  Tomcat manager username  -->
 <password>password</password>
 <!--  Tomcat manager password  -->
-<path>/internsassist</path>
+<path>/intrack</path>
 <!--  Context path of your web application  -->
 </configuration>
 </plugin>
