@@ -1,0 +1,74 @@
+<html>
+<head>
+    <title>Achievements and Rewards</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f4f8;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+        h1 {
+            font-size: 42px;
+            color: #333;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            font-size: 18px;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 250px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        button:hover {
+            background-color: #45a049;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+            transform: translateY(-3px);
+        }
+        button:active {
+            background-color: #3e8e41;
+            transform: translateY(0);
+            box-shadow: none;
+        }
+        footer {
+            position: absolute;
+            bottom: 20px;
+            font-size: 14px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Reward System</h1>
+
+    <div class="button-container">
+        <button onclick="location.href='leaderBoard.html'">Leader Board</button>
+        <button onclick="location.href='achievementTracker.html'">Achievement Tracker</button>
+        <button onclick="location.href='claimRewards.html'">Claim Rewards</button>
+    </div>
+
+    <footer>&copy; 2024 Interns_Track_Assesment by LXI Technologies</footer>
+
+</body>
+</html>
