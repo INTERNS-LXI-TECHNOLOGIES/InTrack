@@ -1,74 +1,122 @@
 <html>
 <head>
     <title>Achievements and Rewards</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f4f8;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-        }
-        h1 {
-            font-size: 42px;
-            color: #333;
-            margin-bottom: 40px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        .button-container {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        button {
-            background-color: #4CAF50;
-            color: white;
-            font-size: 18px;
-            padding: 15px 40px;
-            border: none;
-            border-radius: 8px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            width: 250px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        button:hover {
-            background-color: #45a049;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-            transform: translateY(-3px);
-        }
-        button:active {
-            background-color: #3e8e41;
-            transform: translateY(0);
-            box-shadow: none;
-        }
-        footer {
-            position: absolute;
-            bottom: 20px;
-            font-size: 14px;
-            color: #777;
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f0f4f8;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 42px;
+        color: #333;
+        margin-bottom: 40px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        opacity: 0;
+        animation: fadeIn 1s ease-in forwards;
+    }
+
+    .button-container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    button {
+        background-color: #4CAF50;
+        color: white;
+        font-size: 18px;
+        padding: 15px 40px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        width: 250px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        opacity: 0;
+    }
+
+    button i {
+        margin-right: 10px;
+        transition: transform 0.3s ease;
+    }
+
+    button:hover i {
+        transform: scale(1.2) rotate(10deg);
+    }
+
+    button:hover {
+        background-color: #45a049;
+        transform: translateY(-3px);
+    }
+
+    button:active {
+        background-color: #3e8e41;
+        transform: translateY(0);
+    }
+
+    button:nth-child(1) {
+        animation: slideInFromLeft 1s ease-out forwards;
+        animation-delay: 0.5s;
+    }
+
+    button:nth-child(2) {
+        animation: slideInFromRight 1s ease-out forwards;
+        animation-delay: 0.7s;
+    }
+
+    button:nth-child(3) {
+        animation: slideInFromLeft 1s ease-out forwards;
+        animation-delay: 0.9s;
+    }
+
+    @keyframes slideInFromLeft {
+        0% { transform: translateX(-100%); opacity: 0; }
+        100% { transform: translateX(0); opacity: 1; }
+    }
+
+    @keyframes slideInFromRight {
+        0% { transform: translateX(100%); opacity: 0; }
+        100% { transform: translateX(0); opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+    }
+
+    footer {
+        position: absolute;
+        bottom: 20px;
+        font-size: 14px;
+        color: #777;
+    }
+</style>
+
 </head>
 <body>
 
     <h1>Reward System</h1>
 
     <div class="button-container">
-        <button onclick="location.href='leaderBoard.html'">Leader Board</button>
-        <button onclick="location.href='achievementTracker.html'">Achievement Tracker</button>
-        <button onclick="location.href='claimRewards.html'">Claim Rewards</button>
+        <button onclick="location.href='leaderBoard.html'"><i class="fas fa-trophy"></i>Leader Board</button>
+        <button onclick="location.href='achievementTracker.html'"><i class="fas fa-chart-line"></i>Achievement Tracker</button>
+        <button onclick="location.href='claimRewards.html'"><i class="fas fa-gift"></i>Claim Rewards</button>
     </div>
 
-    <footer>&copy; 2024 Interns_Track_Assesment by LXI Technologies</footer>
+    <footer>&copy; 2024 Interns_Track_Assessment by LXI Technologies</footer>
 
 </body>
 </html>
