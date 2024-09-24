@@ -39,7 +39,7 @@
   </dependencies>
   
   <build>
-    <finalName>internsassist</finalName>
+    <finalName>HolisticLearningFramework</finalName>
     <plugins>
       <!-- Plugin to package the web application -->
       <plugin>
