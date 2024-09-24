@@ -4,7 +4,7 @@
          http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
 
-<<<<<<< HEAD
+<<<<<<< HEAD:001-implementations/HolisticLearningFramework/target/HolisticLearningFramewor/WEB-INF/web.xml
     <servlet>
         <servlet-name>HolisticLearningFramework-1.0-SNAPSHOT</servlet-name>
         <servlet-class>com.divisosofttech.intrack.holisticlearningframework</servlet-class>
@@ -16,6 +16,6 @@
     </servlet-mapping>
 =======
     <display-name>Holistic Learning Framework</display-name>
->>>>>>> f1571eb6776fa568f7235b1bca4b103b616aef34
+>>>>>>> f1571eb6776fa568f7235b1bca4b103b616aef34:001-implementations/HolisticLearningFramework/target/internsassist/WEB-INF/web.xml
 
 </web-app>
