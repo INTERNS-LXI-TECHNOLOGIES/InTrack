@@ -69,7 +69,7 @@
 
         <!--  Tomcat manager URL  -->
         <server>TomcatServer</server>
-        <username>kingsten</username>
+        <username>robot</username>
 
         <!--  Tomcat manager username  -->
         <password>password</password>
