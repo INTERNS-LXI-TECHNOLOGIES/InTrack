@@ -5,7 +5,7 @@
         <artifactId>intrack</artifactId>
         <version>1.0</version>
         <packaging>war</packaging>
-        <name>internsassist Maven Webapp</name>
+        <name>intrack Maven Webapp</name>
         <url>http://maven.apache.org</url>
 
 
@@ -76,13 +76,12 @@
 
         <!--  Tomcat manager password  -->
         <path>/intrack</path>
-
+        
         <!--  Context path of your web application  -->
         </configuration>
         </plugin>
         </plugins>
         </build>
-        
         <!--  Package structure  -->
         <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
