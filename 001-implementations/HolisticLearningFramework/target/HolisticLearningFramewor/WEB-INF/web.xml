@@ -7,7 +7,7 @@
 
     <servlet>
         <servlet-name>HolisticLearningFramework-1.0-SNAPSHOT</servlet-name>
-        <servlet-class>com..divisosofttech.intrack.holisticlearningframework</servlet-class>
+        <servlet-class>com.divisosofttech.intrack.holisticlearningframework</servlet-class>
     </servlet>
 
     <servlet-mapping>
