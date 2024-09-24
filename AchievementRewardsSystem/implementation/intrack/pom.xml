@@ -28,6 +28,13 @@
 <artifactId>spring-security-crypto</artifactId>
 <version>5.8.0</version>
 </dependency>
+<!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa -->
+<dependency>
+    <groupId>org.springframework.data</groupId>
+    <artifactId>spring-data-jpa</artifactId>
+    <version>3.3.4</version>
+</dependency>
+
 </dependencies>
 <!--  Build configuration  -->
 <build>
@@ -52,7 +59,7 @@
 <url>http://localhost:8080/manager/text</url>
 <!--  Tomcat manager URL  -->
 <server>TomcatServer</server>
-<username>kingsten</username>
+<username>Anila</username>
 <!--  Tomcat manager username  -->
 <password>password</password>
 <!--  Tomcat manager password  -->
