@@ -1,4 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<<<<<<< HEAD
 <!--  Project information  -->
 <modelVersion>4.0.0</modelVersion>
 <groupId>com.lxisoft</groupId>
@@ -77,3 +78,96 @@
 <maven.compiler.target>11</maven.compiler.target>
 </properties>
 </project>
+=======
+        <!--  Project information  -->
+        <modelVersion>4.0.0</modelVersion>
+        <groupId>com.lxisoft</groupId>
+        <artifactId>intrack</artifactId>
+        <version>1.0</version>
+        <packaging>war</packaging>
+        <name>internsassist Maven Webapp</name>
+        <url>http://maven.apache.org</url>
+
+
+        <!--  Dependencies  -->
+        <dependencies>
+        <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>3.8.1</version>
+        <scope>test</scope>
+        </dependency>
+
+        <!--  Jakarta Servlet API  -->
+        <dependency>
+        <groupId>jakarta.servlet</groupId>
+        <artifactId>jakarta.servlet-api</artifactId>
+        <version>6.1.0-M2</version>
+        <scope>provided</scope>
+        </dependency>
+
+        <!-- password hash -->
+        <dependency>
+        <groupId>org.springframework.security</groupId>
+        <artifactId>spring-security-crypto</artifactId>
+        <version>5.8.0</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa -->
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+            <version>3.3.4</version>
+        </dependency>
+        </dependencies>
+
+
+        <!--  Build configuration  -->
+        <build>
+        <finalName>intrack</finalName>
+        <plugins>
+
+
+        <!--  Plugin to package the web application  -->
+        <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.2.2</version>
+        <configuration>
+        <warSourceDirectory>src/main/webapp</warSourceDirectory>
+        <failOnMissingWebXml>false</failOnMissingWebXml>
+        </configuration>
+        </plugin>
+
+        <!--  Plugin for deploying the application to Tomcat  -->
+        <plugin>
+        <groupId>org.apache.tomcat.maven</groupId>
+        <artifactId>tomcat7-maven-plugin</artifactId>
+        <version>2.2</version>
+        <configuration>
+        <url>http://localhost:8080/manager/text</url>
+
+        <!--  Tomcat manager URL  -->
+        <server>TomcatServer</server>
+        <username>kingsten</username>
+
+        <!--  Tomcat manager username  -->
+        <password>password</password>
+
+        <!--  Tomcat manager password  -->
+        <path>/intrack</path>
+
+        <!--  Context path of your web application  -->
+        </configuration>
+        </plugin>
+        </plugins>
+        </build>
+        
+        <!--  Package structure  -->
+        <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        </properties>
+        </project>
+>>>>>>> a4d5c19f142c6073679cbff0fe4a5041943262bf
