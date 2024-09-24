@@ -15,6 +15,14 @@
 <version>3.8.1</version>
 <scope>test</scope>
 </dependency>
+
+<!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa -->
+<dependency>
+    <groupId>org.springframework.data</groupId>
+    <artifactId>spring-data-jpa</artifactId>
+    <version>3.3.4</version>
+</dependency>
+
 <!--  Jakarta Servlet API  -->
 <dependency>
 <groupId>jakarta.servlet</groupId>
@@ -52,7 +60,7 @@
 <url>http://localhost:8080/manager/text</url>
 <!--  Tomcat manager URL  -->
 <server>TomcatServer</server>
-<username>kingsten</username>
+<username>robot</username>
 <!--  Tomcat manager username  -->
 <password>password</password>
 <!--  Tomcat manager password  -->
