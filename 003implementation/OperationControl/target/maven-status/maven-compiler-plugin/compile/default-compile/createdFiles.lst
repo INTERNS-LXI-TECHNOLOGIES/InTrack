@@ -1,1 +1,5 @@
 com\divisosofttech\intrackapp\domain\AdminDashBoard.class
+com\divisosofttech\intrackapp\domain\Admin.class
+com\divisosofttech\intrackapp\repository\AdminRepository.class
+com\divisosofttech\intrackapp\repository\Autowired.class
+com\divisosofttech\intrackapp\services\AdminService.class
