@@ -1,7 +1,45 @@
-<!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
+<!DOCTYPE web-app PUBLIC 
+    "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" 
+    "http://java.sun.com/dtd/web-app_2_3.dtd">
 
 <web-app>
-  <display-name>Archetype Created Web Application</display-name>
+    <display-name>Secured Web Application</display-name>
+
+    <!-- Define Servlet -->
+    <servlet>
+        <servlet-name>SubmitServlet</servlet-name>
+        <servlet-class>SubmitServlet</servlet-class> <!-- Replace with the actual package name -->
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SubmitServlet</servlet-name>
+        <url-pattern>/SubmitServlet</url-pattern>
+    </servlet-mapping>
+
+    <!-- Security Constraints -->
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Protected Area</web-resource-name>
+            <url-pattern>/SubmitServlet</url-pattern> <!-- Protect the SubmitServlet -->
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>user</role-name> <!-- Only users with the role "user" can access this -->
+        </auth-constraint>
+    </security-constraint>
+
+    <!-- Security Roles -->
+    <security-role>
+        <role-name>user</role-name> <!-- Define a user role -->
+    </security-role>
+
+    <!-- Login Configuration -->
+    <login-config>
+        <auth-method>BASIC</auth-method> <!-- For basic authentication, you can change it to FORM if you have a login page -->
+        <realm-name>Secured Area</realm-name>
+    </login-config>
+
+    <!-- Welcome File List -->
+    <welcome-file-list>
+        <welcome-file>form.html</welcome-file> <!-- Define form.html as a welcome page -->
+    </welcome-file-list>
+
 </web-app>
