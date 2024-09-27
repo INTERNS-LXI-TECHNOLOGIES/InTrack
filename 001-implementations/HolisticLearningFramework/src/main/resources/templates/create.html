@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create Mental Dimension</title>
+</head>
+<body>
+    <h1>Add New Mental Dimension</h1>
+    <form action="#" th:action="@{/mental-dimension/create}" th:object="${mentalDimention}" method="post">
+        <label for="dateTime">Date/Time:</label>
+        <input type="datetime-local" id="dateTime" th:field="*{dateTime}" required><br>
+
+        <label for="points">Points:</label>
+        <input type="number" id="points" th:field="*{points}" required><br>
+
+        <label for="question">Question:</label>
+        <input type="text" id="question" th:field="*{question}" required><br>
+
+        <label for="answer">Answer:</label>
+        <input type="text" id="answer" th:field="*{answer}" required><br>
+
+        <button type="submit">Submit</button>
+    </form>
+    <a href="/mental-dimension/list">Back to List</a>
+</body>
+</html>

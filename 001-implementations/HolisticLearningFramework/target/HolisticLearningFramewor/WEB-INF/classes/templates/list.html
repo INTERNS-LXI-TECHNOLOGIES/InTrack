@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Mental Dimensions List</title>
+</head>
+<body>
+    <h1>Mental Dimensions</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Date</th>
+                <th>Points</th>
+                <th>Question</th>
+                <th>Answer</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="dimension : ${dimensions}">
+                <td th:text="${dimension.id}"></td>
+                <td th:text="${dimension.dateTime}"></td>
+                <td th:text="${dimension.points}"></td>
+                <td th:text="${dimension.question}"></td>
+                <td th:text="${dimension.answer}"></td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="/mental-dimension/create">Add New Mental Dimension</a>
+</body>
+</html>
