@@ -1,14 +1,15 @@
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class StreamTest {
-    public static void main(String[] CountWordsStartingWithD) {
-        List<String> words = Arrays.asList("Dog", "Cat", "Deer", "Duck", "Elephant", "Dolphin");
+    public static void main(String[] DoubleNumbers) {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
 
-        long count = words.stream()
-                .filter(word -> word.startsWith("D"))
-                .count();
+        List<Integer> doubledNumbers = numbers.stream()
+                .map(n -> n * 2)
+                .collect(Collectors.toList());
 
-        System.out.println("Number of words starting with 'D': " + count);
+        System.out.println("Doubled numbers: " + doubledNumbers);
     }
 }
