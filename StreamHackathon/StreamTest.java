@@ -2,14 +2,13 @@ import java.util.Arrays;
 import java.util.List;
 
 public class StreamTest {
-    public static void main(String[] findSumOfEvenNumbers) {
+    public static void main(String[] CountWordsStartingWithD) {
+        List<String> words = Arrays.asList("Dog", "Cat", "Deer", "Duck", "Elephant", "Dolphin");
 
-        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+        long count = words.stream()
+                .filter(word -> word.startsWith("D"))
+                .count();
 
-        int sumOfEvens = numbers.stream()
-                .filter(n -> n % 2 == 0)
-                .mapToInt(Integer::intValue)
-                .sum();
-        System.out.println("Sum of even numbers: " + sumOfEvens);
+        System.out.println("Number of words starting with 'D': " + count);
     }
 }
