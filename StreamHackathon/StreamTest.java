@@ -3,13 +3,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class StreamTest {
-    public static void main(String[] filterEmptyStrings) {
-        List<String> strings = Arrays.asList("apple", "", "banana", " ", "cherry", "", "date");
+    public static void main(String[] findtheLongestWord) {
+        List<String> words = Arrays.asList("apple", "banana", "cherry", "watermelon", "grape");
 
-        List<String> filteredStrings = strings.stream()
-                .filter(str -> !str.isEmpty())
-                .collect(Collectors.toList());
+        String longestWord = words.stream()
+                .reduce((word1, word2) -> word1.length() > word2.length() ? word1 : word2)
+                .orElse("");
 
-        System.out.println("Filtered strings: " + filteredStrings);
+        System.out.println("Longest word: " + longestWord);
     }
 }
