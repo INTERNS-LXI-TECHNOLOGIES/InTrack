@@ -3,13 +3,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class StreamTest {
-    public static void main(String[] DoubleNumbers) {
-        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+    public static void main(String[] filterEmptyStrings) {
+        List<String> strings = Arrays.asList("apple", "", "banana", " ", "cherry", "", "date");
 
-        List<Integer> doubledNumbers = numbers.stream()
-                .map(n -> n * 2)
+        List<String> filteredStrings = strings.stream()
+                .filter(str -> !str.isEmpty())
                 .collect(Collectors.toList());
 
-        System.out.println("Doubled numbers: " + doubledNumbers);
+        System.out.println("Filtered strings: " + filteredStrings);
     }
 }
