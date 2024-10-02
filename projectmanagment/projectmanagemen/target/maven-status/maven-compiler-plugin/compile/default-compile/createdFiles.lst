@@ -1,0 +1,5 @@
+com\lxi\project\App.class
+com\lxi\project\Project.class
+com\lxi\project\Task.class
+com\lxi\project\TaskRepository.class
+com\lxi\project\ProjectRepository.class
