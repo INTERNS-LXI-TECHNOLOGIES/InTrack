@@ -2,13 +2,30 @@ package com.divisosofttech.keys;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Scanner;
 
 public class SecretKeys {
 
-    public static Map<String, String> keys = new HashMap<>();
+    public static Map<String, String> keys = new LinkedHashMap<>();
+
+    public static String[] answerKeys = new String[21];
+
+    static {
+        answerKeys[0] = "";
+        answerKeys[1] = "";
+        answerKeys[2] = "";
+        answerKeys[3] = "";
+        answerKeys[4] = "";
+        answerKeys[5] = "";
+        answerKeys[6] = "";
+        answerKeys[7] = "";
+        answerKeys[8] = "";
+        answerKeys[9] = "";
+       
+       
+    }
 
     static {
 
@@ -22,21 +39,10 @@ public class SecretKeys {
         keys.put("LEVEL8", "13598bc4f25b5c6faef9ff2aed2bc510");
         keys.put("LEVEL9", "2399122c182da0d5946e2937bb73edf2");
         keys.put("LEVEL10", "bf5c1d5c27ebae23954367aff15bf344");
-        keys.put("LEVEL11", "215ac9dcf8fff13c0993a67a0be94747");
-        keys.put("LEVEL12", "0bfc16cc12effc1bae4d3766c4f2257d");
-        keys.put("LEVEL13", "9b520b10321bab9e8dcef042ddef6e49");
-        keys.put("LEVEL14", "b1e5b15ab34e89de8faf65a0d88d1c64");
-        keys.put("LEVEL15", "13598bc4f25b5c6faef9ff2aed2bc510");
-        keys.put("LEVEL16", "5b1d59b5451c06afb65ab1bc2713cfb4");
-        keys.put("LEVEL17", "4905ac9d6a22bdfc1ae096094ce6248d");
-        keys.put("LEVEL18", "8e63dcd86ef9574181a9b6184ed3dde5");
-        keys.put("LEVEL19", "fc91b14eef9c58c4cad8fdf87b4c0bea");
-        keys.put("LEVEL20", "07331cdec962e140b22cfac41caf00c5");
-        keys.put("FINAL", "171c4a37ab565774953d2bcbfac45bfa");
+       
 
     }
 
-    
     public static void checkAnswerKeyForLevel() {
         System.out.println("Enter Level ");
         Scanner s = new Scanner(System.in);
@@ -79,6 +85,28 @@ public class SecretKeys {
         } catch (NoSuchAlgorithmException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public static void checkAnswerKeyForLevels() {
+
+        String[] hashes = (String[]) keys.values().toArray(new String[0]);
+        boolean allMatch = true;
+        for (int i = 0; i < hashes.length ; i++) {
+            if (getMD5Hash(answerKeys[i]).equals(hashes[i])) {
+                System.out.println("Wow! Way to go you cracked level :" + i);
+            } else {
+                System.out.println("SORRY! Failed to crack level :" + i);
+                allMatch = false;
+            }
+
+        }
+        if (allMatch) {
+            System.out.println("You CRACKED THE TREASURE AND EARNED THE CASH PRICE");
+
+        } else {
+            System.out.println("Try again, You failed a level");
+        }
+
     }
 
 }
