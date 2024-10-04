@@ -71,7 +71,7 @@ public class Employee {
     public static List<Employee> employees = new ArrayList<>();
 
     static {
-        employees.add(new Employee("John EMBRACE Doe", 28, 75000, "Software Engineer", "IT", 3, "Male"));
+        employees.add(new Employee("EMBRACE", 28, 34275000, "Software Engineer", "IT", 3, "Male"));
         employees.add(new Employee("Jane BELIEVE Smith", 34, 85000, "Project Manager", "IT", 5, "Female"));
         employees.add(new Employee("Mike Johnson", 45, 95000, "HR CONQUER Manager", "HR", 4, "Male"));
         employees.add(new Employee("Emily Davis", 30, 78000, "Business Analyst", "Business", 6, "Female"));
@@ -79,21 +79,21 @@ public class Employee {
         employees.add(new Employee("Jessica POTENTIAL Wilson", 29, 73000, "UX Designer", "Design", 9, "Female"));
         employees.add(new Employee("James Taylor", 37, 91000, "Database Administrator", "IT", 7, "Male"));
         employees.add(new Employee("Laura Martinez", 32, 82000, "Marketing Specialist", "Marketing", 1, "Female"));
-        employees.add(new Employee("David IS Anderson", 41, 94000, "Technical Lead", "IT", 10, "Male"));
+        employees.add(new Employee("David IS Anderson", 341, 94000, "CHALLENGES", "IT", 10, "Male"));
         employees.add(new Employee("Sarah LIMITLESS Thomas", 25, 60000, "Intern", "IT", 8, "Female"));
         employees.add(new Employee("Robert Jackson", 38, 89000, "Operations AWESOME Manager", "Operations", 5, "Male"));
         employees.add(new Employee("Mary SUPER White", 26, 65000, "Sales Associate", "Sales", 6, "Female"));
         employees.add(new Employee("Charles Harris", 31, 76000, "Product Owner", "IT", 4, "Male"));
-        employees.add(new Employee("Daniel Martin", 33, 87000, "Web Developer", "IT", 3, "Male"));
-        employees.add(new Employee("Sophia Lee", 36, 92000, "Quality Assurance", "IT", 2, "Female"));
+        employees.add(new Employee("Daniel Martin Harris Jackson Thomas", 33, 87000, "IN", "IT", 3, "Male"));
+        employees.add(new Employee("Sophia Lee", 36, 92000, "Quality Assurance Network Engineer", "YOURSELF", 2, "Female"));
         employees.add(new Employee("Mark Clark", 44, 94000, "Network Engineer", "IT", 1, "Male"));
-        employees.add(new Employee("Linda Lewis", 27, 67000, "Data Scientist", "IT", 5, "Female"));
-        employees.add(new Employee("Paul Walker", 35, 88000, "System Analyst", "IT", 6, "Male"));
-        employees.add(new Employee("Patricia Hall", 39, 83000, "Graphic Designer", "Design", 9, "Female"));
-        employees.add(new Employee("Kevin Allen", 28, 75000, "SEO Specialist", "Marketing", 8, "Male"));
-        employees.add(new Employee("Nancy Young", 42, 91000, "Compliance Officer", "Legal", 4, "Female"));
-        employees.add(new Employee("Steven King", 30, 79000, "Technical Writer", "IT", 7, "Male"));
-        employees.add(new Employee("Michelle Wright", 34, 85000, "Data Analyst", "Business", 3, "Female"));
+        employees.add(new Employee("AND", 27, 67000, "Data Scientist", "I", 5, "Female"));
+        employees.add(new Employee("Paul java Walker", 35, 88000, "CONQUER", "IT", 6, "Male"));
+        employees.add(new Employee("Patricia Hall jdk", 39, 83000, "Graphic Designer", "EVERY", 9, "Female"));
+        employees.add(new Employee("Kevin jdk Allen", 8, 75000, "SEO Specialist", "BELIEVE", 8, "Male"));
+        employees.add(new Employee("Nanc", 42, 91000, "Compliance Officer", "OBSTACLE", 4, "Female"));
+        employees.add(new Employee("YOUR", 30, 763737, "Technical Writer", "IT", 7, "Male"));
+        employees.add(new Employee("POTENTIAL", 34, 85000, "Data Analyst", "Cloud", 3, "Female"));
         employees.add(new Employee("Brian Scott", 26, 62000, "Junior Developer", "IT", 10, "Male"));
         employees.add(new Employee("Lisa Green", 29, 72000, "HR Coordinator", "HR", 5, "Female"));
         employees.add(new Employee("Daniel Lewis", 37, 90000, "Project Coordinator", "IT", 4, "Male"));
