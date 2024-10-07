@@ -1,0 +1,6 @@
+com\divisosofttech\intrack\holisticlearningframework\repo\MentalDimentionRepository.class
+com\divisosofttech\intrack\holisticlearningframework\App.class
+com\divisosofttech\intrack\holisticlearningframework\service\MentalDimentionService.class
+com\divisosofttech\intrack\holisticlearningframework\repo\PhysicalDimentionRepository.class
+com\divisosofttech\intrack\holisticlearningframework\entity\PhysicalDimention.class
+com\divisosofttech\intrack\holisticlearningframework\entity\MentalDimention.class
