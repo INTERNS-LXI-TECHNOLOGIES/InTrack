@@ -9,90 +9,93 @@ import com.divisosofttech.keys.SecretKeys;
  * Hello world!
  *
  */
-public class App 
-{
-    public static void main( String[] args )
-    {
-    
+public class App {
+  public static void main(String[] args) {
+
     // #Question 1
 
-     Employee maxSalaryEmployee = Employee.getEmployees().stream()
-                .max(Comparator.comparingDouble(Employee::getSalary))
-                .orElse(null); // In case the list is empty    
+    Employee maxSalaryEmployee = Employee.getEmployees().stream()
+        .max(Comparator.comparingDouble(Employee::getSalary))
+        .orElse(null); // In case the list is empty
 
-    SecretKeys.answerKeys[0]  = maxSalaryEmployee.getName() ;
+    SecretKeys.answerKeys[0] = maxSalaryEmployee.getName();
 
+    // # Question 2 Clue word is the designation name of the employee who has the
+    // max age.
+    Employee maxAgEmployee = Employee.getEmployees().stream().max(Comparator.comparingInt(Employee::getAge))
+        .orElse(null);
 
+    SecretKeys.answerKeys[1] = maxAgEmployee.getDesignation();
 
-    // # Question 2 Clue word is the designation name of the employee who has the max age.
+    // # Question 3 Clue word is the department name of the employee with the min
+    // age.
 
-    SecretKeys.answerKeys[1]  = "";
+    Employee minAgEmployee = Employee.getEmployees().stream().min(Comparator.comparingInt(Employee::getAge))
+        .orElse(null);
 
-
-    // # Question 3 Clue word is the department name of the employee with the min age.
-
-    
-    SecretKeys.answerKeys[2]  = "" ;
-
-   // # Question 4 Clue word is the designation name of the employee with the longest name 
-   
-    SecretKeys.answerKeys[3]  = "" ;
-
-
-
-   // # Question 4 Clue word is the department name of the employee with the longest designation name
-        
-   
-
-    SecretKeys.answerKeys[4]  = "" ;
-
-
-  // # Questino 5 Clue word is the name of the employee with the shortest department name   
+    SecretKeys.answerKeys[2] = minAgEmployee.getDepartment();
     
 
-    SecretKeys.answerKeys[5]  = "" ;
+    // # Question 4 Clue word is the designation name of the employee with the
+    // longest name
+    Employee longestNameEmployee = Employee.getEmployees().stream()
+        .max(Comparator.comparingInt(e -> e.getName().length())).orElse(null);
 
-  // Question 6 Clue word is the designation of the employee with the name that has "java" in it  
+    SecretKeys.answerKeys[3] = longestNameEmployee.getDesignation();
 
-    
+    // # Question 4 Clue word is the department name of the employee with the
+    // longest designation name
 
+    Employee longestdesgNameEmployee = Employee.getEmployees().stream()
+        .max(Comparator.comparingInt(e -> e.getDesignation().length())).orElse(null);
 
-    SecretKeys.answerKeys[6]  = "" ;
+    SecretKeys.answerKeys[4] = longestdesgNameEmployee.getDepartment();
 
-//  Question 7 Clue word is name of the department with an employee whose name starts with "P" and has the word "jdk" in it
+    // # Questino 5 Clue word is the name of the employee with the shortest
+    // department name
 
-   
-   
+    Employee shortestdepNameEmployee = Employee.getEmployees().stream()
+        .min(Comparator.comparingInt(e -> e.getDepartment().length())).orElse(null);
 
-    SecretKeys.answerKeys[7]  = "" ;
+    SecretKeys.answerKeys[5] = shortestdepNameEmployee.getName();
 
-    // Question 8 Clue word is the name of the department with an employee whose name has four letters and the name starts with "N"
+    // Question 6 Clue word is the designation of the employee with the name that
+    // has "java" in it
 
-    
-    SecretKeys.answerKeys[8]  = "" ;
+    Employee javaNameEmployee = Employee.getEmployees().stream().filter(a -> a.getName().contains("java")).findFirst()
+        .orElse(null);
+
+    SecretKeys.answerKeys[6] = javaNameEmployee.getDesignation();
+
+    // Question 7 Clue word is name of the department with an employee whose name
+    // starts with "P" and has the word "jdk" in it
+
+    Employee startsWithP = Employee.getEmployees().stream().filter(a -> a.getName().startsWith("P"))
+        .filter(d -> d.getName().contains("jdk")).findFirst().orElse(null);
+
+    SecretKeys.answerKeys[7] = startsWithP.getDepartment();
+
+    // Question 8 Clue word is the name of the department with an employee whose
+    // name has four letters and the name starts with "N"
+
+    Employee startsWithN = Employee.getEmployees().stream().filter(a -> a.getName().startsWith("N")).findFirst()
+        .orElse(null);
+
+    SecretKeys.answerKeys[8] = startsWithN.getDepartment();
 
     // Question 8 Clue word is the name of the employee whose salary is 763737
 
+    Employee employeeSalary = Employee.getEmployees().stream().filter(a -> a.getSalary() == 763737).findFirst()
+        .orElse(null);
 
-    
+    SecretKeys.answerKeys[9] = employeeSalary.getName();
 
-    SecretKeys.answerKeys[9]  = "" ;
+    // Question 9 clue word is name of the employee whose department is Cloud
 
-    //  Question 9 clue word is name of the employee whose department is Cloud
+    // Employee
 
-    
-
-    
-
-    SecretKeys.answerKeys[10]  = "" ;
-
-    
-   
-
-
-
-    
+    SecretKeys.answerKeys[10] = "";
 
     SecretKeys.checkAnswerKeyForLevels();
-    }
+  }
 }
