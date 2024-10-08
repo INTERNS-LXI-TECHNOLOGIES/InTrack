@@ -54,9 +54,6 @@ public static void main(String args[]){
 		System.out.println("a startWith:"+afilterfruits);
 		
 		
-		
-		
-		
 		String str="apple"+"bannana"+"cherry";
 		
 		List<String> list=str.chars()
@@ -66,8 +63,6 @@ public static void main(String args[]){
 			
 		
 		list.forEach(n->System.out.println(n));
-		
-		
 		fruits.stream()
 		.forEach(n->System.out.println(n));
 

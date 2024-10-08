@@ -14,7 +14,7 @@ public static void main(String args[]){
 	  List<Integer> lengths = words.stream()
         .map(String::length)
         .collect(Collectors.toList());
-		System.out.println("lenth is"+lengths);
+		System.out.println("length is"+lengths);
 		
 		List<String> distinctList = words.stream()
           .distinct()
