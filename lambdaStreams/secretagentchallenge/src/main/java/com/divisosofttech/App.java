@@ -26,12 +26,12 @@ public class App
          int sum = numbers.stream().reduce(x, Integer::sum);
             System.out.println("The sum of all elements is  " + sum);
 
-     List<Employee> employees = Employee.getEmployees();
-        Predicate<Employee> startsWithA = emp->emp.getName().startsWith("D");
+           List<Employee> employees = Employee.getEmployees();
+              Predicate<Employee> startsWithA = emp->emp.getName().startsWith("D");
 
-            employees.stream().
-                filter(startsWithA).
-                     forEach(System.out::println);
+                employees.stream().
+                  filter(startsWithA).
+                      forEach(System.out::println);
 
                      Employee.getEmployees().stream()
                      .sorted(Comparator.comparing(Employee::getName, Comparator.reverseOrder()))
