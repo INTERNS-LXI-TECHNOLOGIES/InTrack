@@ -144,12 +144,8 @@ public class App {
         // 19. Get a list of all movie titles in uppercase.
         // Code your solution here
         System.out.println("\t"+"Movie titles in uppercase.");
-        List<Movie> inUpperCase = getMovies.stream().filter(movie -> movie.getTitle().toUpperCase().equals(movie.getTitle())).toList();
-        if(!inUpperCase.isEmpty()){
-            inUpperCase.forEach(movie -> System.out.println(movie.getTitle()));
-        }else{
-            System.out.println("No movies found");
-        }
+        List<String> inUpperCase = getMovies.stream().map(movie -> movie.getTitle().toUpperCase()).toList();
+        inUpperCase.forEach(movie -> System.out.println(movie));
 
         // 20. Find the total duration of all movies combined.
         // Code your solution here
@@ -157,7 +153,7 @@ public class App {
         int totalDuration = getMovies.stream().collect(Collectors.summingInt(Movie::getDuration));
         System.out.println(totalDuration);
 
-        //System.out.println(getMovies.stream().count());
+
     }
 
 
