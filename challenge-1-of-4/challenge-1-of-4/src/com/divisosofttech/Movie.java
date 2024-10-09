@@ -2,8 +2,10 @@ package com.divisosofttech ;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.ToDoubleFunction;
 
 public class Movie {
+    public static ToDoubleFunction getRating;
     private String title;
     private String genre;
     private int releaseYear;
