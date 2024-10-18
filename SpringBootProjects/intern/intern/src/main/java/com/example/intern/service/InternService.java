@@ -16,28 +16,48 @@ public class InternService {
     @Autowired
     private InternRepository internRepository;
 
+    
+
     public List<Intern> getAllIntern(){
         return internRepository.findAll();
     }
 
-    public Intern createIntern(Intern intern){
-        return internRepository.save(intern);
+    public void createIntern(Intern intern){
+        internRepository.save(intern);
     }
 
-    public Intern updateIntern(Long id, Intern intern){
+    public void updateIntern(Long id, Intern intern){
        
+        Intern user = internRepository.findById(id).orElse(null);
+
+        if(user!=null){
+            user.setName(intern.getName());
+            user.setAge(intern.getAge());
+
+             internRepository.save(user);
+        }
+    }
+
+    public void upIntern(String name, Intern intern){
+        Intern user = internRepository.findByName(name);
+
+        if(user != null){
+            user.setName(intern.getName());
+            user.setAge(intern.getAge());
+
+            internRepository.save(user);
+        }
+    }
+
+    public void deleteIntern(Long id){
+
         Optional<Intern> user = internRepository.findById(id);
 
         if(user.isPresent()){
-            Intern upIntern = user.get();
-            upIntern.setName(intern.getName());
-            upIntern.setAge(intern.getAge());
+            Intern delIntern = user.get();
 
-            return internRepository.save(upIntern);
+            internRepository.delete(delIntern);
         }
-
-        return  null;
-
     }
 
     

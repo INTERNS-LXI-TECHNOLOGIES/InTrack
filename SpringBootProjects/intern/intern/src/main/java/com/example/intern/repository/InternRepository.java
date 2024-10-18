@@ -9,6 +9,8 @@ import com.example.intern.model.Intern;
 
 @Repository
 public interface  InternRepository extends JpaRepository<Intern, Long>{
+
+   Intern findByName(String name);
     
     
 }
