@@ -1,0 +1,113 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+- description: Generated server url
+  url: http://localhost:8080
+paths:
+  /intern/{id}:
+    delete:
+      operationId: delete
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: int64
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Intern'
+          description: OK
+      tags:
+      - intern-controll
+      x-accepts:
+      - '*/*'
+    put:
+      operationId: update
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: int64
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Intern'
+        required: true
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Intern'
+          description: OK
+      tags:
+      - intern-controll
+      x-content-type: application/json
+      x-accepts:
+      - '*/*'
+  /intern:
+    get:
+      operationId: read
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                items:
+                  $ref: '#/components/schemas/Intern'
+                type: array
+          description: OK
+      tags:
+      - intern-controll
+      x-accepts:
+      - '*/*'
+    post:
+      operationId: create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Intern'
+        required: true
+      responses:
+        "200":
+          description: OK
+      tags:
+      - intern-controll
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+components:
+  schemas:
+    Intern:
+      example:
+        name: name
+        id: 0
+        age: 6
+        email: email
+      properties:
+        id:
+          format: int32
+          type: integer
+        name:
+          type: string
+        age:
+          format: int32
+          type: integer
+        email:
+          type: string
+      type: object
+
