@@ -1,0 +1,132 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+- description: Generated server url
+  url: http://localhost:8080
+paths:
+  /api/interns/{id}:
+    delete:
+      operationId: deleteIntern
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: int64
+          type: integer
+        style: simple
+      responses:
+        "200":
+          description: OK
+      tags:
+      - intern-controller
+      x-accepts:
+      - application/json
+    get:
+      operationId: getInternById
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: int64
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Intern'
+          description: OK
+      tags:
+      - intern-controller
+      x-accepts:
+      - '*/*'
+    put:
+      operationId: updateIntern
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: int64
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Intern'
+        required: true
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Intern'
+          description: OK
+      tags:
+      - intern-controller
+      x-content-type: application/json
+      x-accepts:
+      - '*/*'
+  /api/interns:
+    get:
+      operationId: getAllInterns
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                items:
+                  $ref: '#/components/schemas/Intern'
+                type: array
+          description: OK
+      tags:
+      - intern-controller
+      x-accepts:
+      - '*/*'
+    post:
+      operationId: createIntern
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Intern'
+        required: true
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Intern'
+          description: OK
+      tags:
+      - intern-controller
+      x-content-type: application/json
+      x-accepts:
+      - '*/*'
+components:
+  schemas:
+    Intern:
+      example:
+        name: name
+        id: 0
+        age: 6
+      properties:
+        id:
+          format: int64
+          type: integer
+        name:
+          type: string
+        age:
+          format: int32
+          type: integer
+      type: object
+
