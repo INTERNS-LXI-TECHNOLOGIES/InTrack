@@ -23,7 +23,7 @@ public class InternService {
 
     public List<org.openapitools.client.model.Intern> getInterns() {
     ApiClient apiClient = new ApiClient();
-    apiClient.setBasePath("http://localhost:8080");
+    apiClient.setBasePath("http://localhost:8081/myapp");
 
     InternsControllerApi internsControllerApi = new InternsControllerApi(apiClient);
     List<org.openapitools.client.model.Intern> result = new ArrayList<>();
