@@ -1,11 +1,14 @@
 package com.lxisoft.firstdemo.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.api.UserControllerApi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.lxisoft.firstdemo.entity.UserEntity;
 import com.lxisoft.firstdemo.repository.UserRepository;
 
 @Service
@@ -14,16 +17,33 @@ public class UserServices {
     @Autowired
     private UserRepository userRepository;
 
-    public UserEntity saveUser(UserEntity user) {
-        return userRepository.save(user);
-    }
+    public List<org.openapitools.client.model.UserEntity> getUsers() {
+        ApiClient apiClient = new ApiClient();
+        apiClient.setBasePath("http://localhost:8081");
+        
+        List<org.openapitools.client.model.UserEntity> userList =new ArrayList<>();
+        UserControllerApi userControllerApi = new UserControllerApi(apiClient);
+        try{
+             userList = userControllerApi.getAllUsers();
+        }
+        catch(ApiException e)
+        {
+            e.getMessage();
+        }
+        return userList;
 
-    public List<UserEntity> getAllUsers() {
+}
+
+ public com.lxisoft.firstdemo.entity.UserEntity save(com.lxisoft.firstdemo.entity.UserEntity user){
+    return userRepository.save(user);
+ }
+
+   /* public List<UserEntity> getAllUsers() {
         return userRepository.findAll();
-    }
+    }*/
 
-   public UserEntity updateUser(Long id, UserEntity updatedUser) {
-        UserEntity existingUser = userRepository.findById(id).orElse(null);
+   public com.lxisoft.firstdemo.entity.UserEntity updateUser(Long id, com.lxisoft.firstdemo.entity.UserEntity updatedUser) {
+       com.lxisoft.firstdemo.entity. UserEntity existingUser = userRepository.findById(id).orElse(null);
 
     if (existingUser == null) {
         throw new RuntimeException("User not found with ID: " + id);

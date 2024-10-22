@@ -23,13 +23,13 @@ public class UserController {
     private UserServices userServices;
 
     @PostMapping("/api/create")
-    public UserEntity createUser(@RequestBody UserEntity user) {
-        return userServices.saveUser(user);
+    public void createUser(@RequestBody UserEntity user) {
+         userServices.save(user);
     }
 
     @GetMapping
-    public List<UserEntity> getAllUsers() {
-        return userServices.getAllUsers();
+    public List<org.openapitools.client.model.UserEntity> getAllUsers() {
+        return userServices.getUsers();
     }
 
     @PutMapping("/{id}")
