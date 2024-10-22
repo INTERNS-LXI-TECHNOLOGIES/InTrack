@@ -1,0 +1,124 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+- description: Generated server url
+  url: http://localhost:8080
+paths:
+  /{id}:
+    delete:
+      operationId: deleteRewards
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: int64
+          type: integer
+        style: simple
+      responses:
+        "200":
+          description: OK
+      tags:
+      - reward-controller
+      x-accepts:
+      - application/json
+    put:
+      operationId: updateRewards
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: int64
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Reward'
+        required: true
+      responses:
+        "200":
+          description: OK
+      tags:
+      - reward-controller
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /create:
+    post:
+      operationId: createRewards
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Reward'
+        required: true
+      responses:
+        "200":
+          description: OK
+      tags:
+      - reward-controller
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /{name}:
+    get:
+      operationId: getRewardbyNames
+      parameters:
+      - explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Reward'
+          description: OK
+      tags:
+      - reward-controller
+      x-accepts:
+      - '*/*'
+  /:
+    get:
+      operationId: getRewards
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                items:
+                  $ref: '#/components/schemas/Reward'
+                type: array
+          description: OK
+      tags:
+      - reward-controller
+      x-accepts:
+      - '*/*'
+components:
+  schemas:
+    Reward:
+      example:
+        name: name
+        id: 0
+        points: points
+      properties:
+        id:
+          format: int32
+          type: integer
+        name:
+          type: string
+        points:
+          type: string
+      type: object
+
