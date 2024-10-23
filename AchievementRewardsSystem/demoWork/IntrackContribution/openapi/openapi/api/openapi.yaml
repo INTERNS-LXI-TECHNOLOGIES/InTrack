@@ -1,0 +1,69 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+- description: Generated server url
+  url: http://localhost:8080
+paths:
+  /get:
+    get:
+      operationId: showDetails
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                items:
+                  $ref: '#/components/schemas/BalancedScoreCardEntity'
+                type: array
+          description: OK
+      tags:
+      - balanced-score-card-controller
+      x-accepts:
+      - '*/*'
+components:
+  schemas:
+    BalancedScoreCardEntity:
+      example:
+        totalAnalizedScore: totalAnalizedScore
+        aadhaarNumber: aadhaarNumber
+        mentalInvolvement: mentalInvolvement
+        spiritualInvolvement: spiritualInvolvement
+        rewardsEarned: rewardsEarned
+        socialInvolvement: socialInvolvement
+        name: name
+        physicalScore: physicalScore
+        emailId: emailId
+        id: 0
+        rankPosition: 6
+        pan: pan
+      properties:
+        id:
+          format: int64
+          type: integer
+        rankPosition:
+          format: int32
+          type: integer
+        name:
+          type: string
+        emailId:
+          type: string
+        aadhaarNumber:
+          type: string
+        pan:
+          type: string
+        totalAnalizedScore:
+          type: string
+        physicalScore:
+          type: string
+        mentalInvolvement:
+          type: string
+        socialInvolvement:
+          type: string
+        spiritualInvolvement:
+          type: string
+        rewardsEarned:
+          type: string
+      type: object
+

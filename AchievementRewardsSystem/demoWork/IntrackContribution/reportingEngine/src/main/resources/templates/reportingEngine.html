@@ -1,0 +1,42 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Balanced Score Card Details</title>
+</head>
+<body>
+    <h1>Balanced Score Card Details</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Rank Position</th>
+                <th>Name</th>
+                <th>Email ID</th>
+                <th>Aadhaar Number</th>
+                <th>PAN</th>
+                <th>Total Analyzed Score</th>
+                <th>Physical Score</th>
+                <th>Mental Involvement</th>
+                <th>Social Involvement</th>
+                <th>Spiritual Involvement</th>
+                <th>Rewards Earned</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="bsc : ${balancedScoreCards}">
+                <td th:text="${bsc.id}"></td>
+                <td th:text="${bsc.rankPosition}"></td>
+                <td th:text="${bsc.name}"></td>
+                <td th:text="${bsc.emailId}"></td>
+                <td th:text="${bsc.aadhaarNumber}"></td>
+                <td th:text="${bsc.pan}"></td>
+                <td th:text="${bsc.totalAnalizedScore}"></td>
+                <td th:text="${bsc.physicalScore}"></td>
+                <td th:text="${bsc.mentalInvolvement}"></td>
+                <td th:text="${bsc.socialInvolvement}"></td>
+                <td th:text="${bsc.spiritualInvolvement}"></td>
+                <td th:text="${bsc.rewardsEarned}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

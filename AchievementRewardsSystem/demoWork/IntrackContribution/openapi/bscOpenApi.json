@@ -1,0 +1,85 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "OpenAPI definition",
+        "version": "v0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8080",
+            "description": "Generated server url"
+        }
+    ],
+    "paths": {
+        "/get": {
+            "get": {
+                "tags": [
+                    "balanced-score-card-controller"
+                ],
+                "operationId": "showDetails",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/BalancedScoreCardEntity"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "BalancedScoreCardEntity": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "rankPosition": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "emailId": {
+                        "type": "string"
+                    },
+                    "aadhaarNumber": {
+                        "type": "string"
+                    },
+                    "pan": {
+                        "type": "string"
+                    },
+                    "totalAnalizedScore": {
+                        "type": "string"
+                    },
+                    "physicalScore": {
+                        "type": "string"
+                    },
+                    "mentalInvolvement": {
+                        "type": "string"
+                    },
+                    "socialInvolvement": {
+                        "type": "string"
+                    },
+                    "spiritualInvolvement": {
+                        "type": "string"
+                    },
+                    "rewardsEarned": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}
