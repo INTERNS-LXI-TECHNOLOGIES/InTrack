@@ -1,0 +1,496 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+- description: Generated server url
+  url: http://localhost:8080
+paths:
+  /api/workshops/{id}:
+    delete:
+      operationId: deleteWorkshop
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: int64
+          type: integer
+        style: simple
+      responses:
+        "200":
+          description: OK
+      tags:
+      - cognitive-workshop-controller
+      x-accepts:
+      - application/json
+    get:
+      operationId: getWorkshopById
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: int64
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CognitiveWorkshop'
+          description: OK
+      tags:
+      - cognitive-workshop-controller
+      x-accepts:
+      - '*/*'
+    put:
+      operationId: updateWorkshop
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: int64
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CognitiveWorkshop'
+        required: true
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CognitiveWorkshop'
+          description: OK
+      tags:
+      - cognitive-workshop-controller
+      x-content-type: application/json
+      x-accepts:
+      - '*/*'
+  /api/mcq/{id}:
+    delete:
+      operationId: deleteQuestion
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: int64
+          type: integer
+        style: simple
+      responses:
+        "200":
+          description: OK
+      tags:
+      - mcq-question-controller
+      x-accepts:
+      - application/json
+    get:
+      operationId: getQuestionById
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: int64
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/MCQQuestion'
+          description: OK
+      tags:
+      - mcq-question-controller
+      x-accepts:
+      - '*/*'
+    put:
+      operationId: updateQuestion
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: int64
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MCQQuestion'
+        required: true
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/MCQQuestion'
+          description: OK
+      tags:
+      - mcq-question-controller
+      x-content-type: application/json
+      x-accepts:
+      - '*/*'
+  /api/cognitive/challenges/{id}:
+    delete:
+      operationId: deleteChallengeById
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: int64
+          type: integer
+        style: simple
+      responses:
+        "200":
+          description: OK
+      tags:
+      - leet-code-challenge-controller
+      x-accepts:
+      - application/json
+    get:
+      operationId: getChallengeById
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: int64
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/LeetCodeChallenge'
+          description: OK
+      tags:
+      - leet-code-challenge-controller
+      x-accepts:
+      - '*/*'
+    put:
+      operationId: updateChallenge
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: int64
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LeetCodeChallenge'
+        required: true
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/LeetCodeChallenge'
+          description: OK
+      tags:
+      - leet-code-challenge-controller
+      x-content-type: application/json
+      x-accepts:
+      - '*/*'
+  /api/workshops:
+    delete:
+      operationId: deleteAllWorkshops
+      responses:
+        "200":
+          description: OK
+      tags:
+      - cognitive-workshop-controller
+      x-accepts:
+      - application/json
+    get:
+      operationId: getAllWorkshops
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                items:
+                  $ref: '#/components/schemas/CognitiveWorkshop'
+                type: array
+          description: OK
+      tags:
+      - cognitive-workshop-controller
+      x-accepts:
+      - '*/*'
+    post:
+      operationId: createWorkshop
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CognitiveWorkshop'
+        required: true
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CognitiveWorkshop'
+          description: OK
+      tags:
+      - cognitive-workshop-controller
+      x-content-type: application/json
+      x-accepts:
+      - '*/*'
+  /api/workshops/{id}/complete:
+    post:
+      operationId: completeWorkshop
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: int64
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CognitiveWorkshop'
+          description: OK
+      tags:
+      - cognitive-workshop-controller
+      x-accepts:
+      - '*/*'
+  /api/mcq:
+    delete:
+      operationId: deleteAllQuestions
+      responses:
+        "200":
+          description: OK
+      tags:
+      - mcq-question-controller
+      x-accepts:
+      - application/json
+    get:
+      operationId: getAllQuestions
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                items:
+                  $ref: '#/components/schemas/MCQQuestion'
+                type: array
+          description: OK
+      tags:
+      - mcq-question-controller
+      x-accepts:
+      - '*/*'
+    post:
+      operationId: createQuestion
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MCQQuestion'
+        required: true
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/MCQQuestion'
+          description: OK
+      tags:
+      - mcq-question-controller
+      x-content-type: application/json
+      x-accepts:
+      - '*/*'
+  /api/mcq/{id}/submit:
+    post:
+      operationId: submitAnswer
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: int64
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+        required: true
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                type: string
+          description: OK
+      tags:
+      - mcq-question-controller
+      x-content-type: application/json
+      x-accepts:
+      - '*/*'
+  /api/cognitive/challenges/submit:
+    post:
+      operationId: submitSolution
+      parameters:
+      - explode: true
+        in: query
+        name: challengeId
+        required: true
+        schema:
+          format: int64
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: solution
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                type: string
+          description: OK
+      tags:
+      - leet-code-challenge-controller
+      x-accepts:
+      - '*/*'
+  /api/cognitive/challenges/create:
+    post:
+      operationId: createChallenge
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LeetCodeChallenge'
+        required: true
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/LeetCodeChallenge'
+          description: OK
+      tags:
+      - leet-code-challenge-controller
+      x-content-type: application/json
+      x-accepts:
+      - '*/*'
+  /api/cognitive/challenges/all:
+    get:
+      operationId: getAllChallenges
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                items:
+                  $ref: '#/components/schemas/LeetCodeChallenge'
+                type: array
+          description: OK
+      tags:
+      - leet-code-challenge-controller
+      x-accepts:
+      - '*/*'
+  /api/cognitive/challenges/deleteAll:
+    delete:
+      operationId: deleteAllChallenges
+      responses:
+        "200":
+          description: OK
+      tags:
+      - leet-code-challenge-controller
+      x-accepts:
+      - application/json
+components:
+  schemas:
+    CognitiveWorkshop:
+      example:
+        description: description
+        id: 0
+        completed: true
+        title: title
+      properties:
+        id:
+          format: int64
+          type: integer
+        title:
+          type: string
+        description:
+          type: string
+        completed:
+          type: boolean
+      type: object
+    MCQQuestion:
+      example:
+        question: question
+        options:
+        - options
+        - options
+        id: 0
+        correctAnswer: correctAnswer
+      properties:
+        id:
+          format: int64
+          type: integer
+        question:
+          type: string
+        options:
+          items:
+            type: string
+          type: array
+        correctAnswer:
+          type: string
+      type: object
+    LeetCodeChallenge:
+      example:
+        expectedSolution: expectedSolution
+        description: description
+        id: 0
+        title: title
+      properties:
+        id:
+          format: int64
+          type: integer
+        title:
+          type: string
+        description:
+          type: string
+        expectedSolution:
+          type: string
+      type: object
+
