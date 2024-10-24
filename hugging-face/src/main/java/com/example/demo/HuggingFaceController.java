@@ -25,9 +25,9 @@ public class HuggingFaceController {
             return ResponseEntity.badRequest().body("Prompt is required");
         }
 
-        String apiUrl = "https://api-inference.huggingface.co/models/openai-community/gpt2"; // Use the correct inference URL
+        String apiUrl = "https://api-inference.huggingface.co/models/openai-community/gpt2"; 
         HttpHeaders headers = new HttpHeaders();
-        headers.set("Authorization", "Bearer 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"); // Add your Hugging Face API token here
+        headers.set("Authorization", "Bearer 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"); 
         headers.set("Content-Type", "application/json");
 
         String requestBodyJson = String.format("{\"inputs\": \"%s\"}", prompt);
