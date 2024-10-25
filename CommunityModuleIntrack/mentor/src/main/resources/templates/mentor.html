@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Mentor Dashboard</title>
+        <style>
+            body {
+                font-family: 'Roboto', sans-serif;
+                background-color: #e8f1f8;
+                margin: 0;
+                padding: 0;
+            }
+            h1 {
+                text-align: center;
+                background-color: #007bff;
+                color: white;
+                padding: 20px 0;
+                margin: 0;
+                font-size: 36px;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+            }
+            .container {
+                width: 85%;
+                margin: 40px auto;
+                background-color: #ffffff;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+                border-radius: 15px;
+                padding: 30px;
+            }
+            table {
+                width: 100%;
+                border-collapse: separate;
+                border-spacing: 0 15px;
+                margin-top: 25px;
+            }
+            th {
+                background-color: #007bff;
+                color: white;
+                padding: 12px;
+                font-size: 18px;
+                text-align: left;
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+            }
+            td {
+                padding: 15px;
+                background-color: #f9fbfd;
+                border-bottom: 2px solid #dee2e6;
+                text-align: left;
+                font-size: 16px;
+            }
+            td:first-child {
+                border-left: 4px solid #007bff;
+            }
+            tr:hover {
+                background-color: #f1f4f9;
+            }
+            tr:nth-child(even) {
+                background-color: #f5f8fc;
+            }
+            .mentor-stats {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 20px;
+            }
+            .mentor-stats .stat {
+                background-color: #007bff;
+                color: white;
+                padding: 20px;
+                border-radius: 10px;
+                text-align: center;
+                flex: 1;
+                margin: 0 10px;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+                transition: transform 0.2s ease;
+            }
+            .mentor-stats .stat:hover {
+                transform: translateY(-5px);
+            }
+            .stat h2 {
+                margin: 0;
+                font-size: 28px;
+                font-weight: 600;
+            }
+            .stat p {
+                font-size: 22px;
+                margin-top: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Mentor Dashboard</h1>
+        <div class="container">
+            <div class="mentor-stats">
+                <div class="stat">
+                    <h2>Total Mentees</h2>
+                    <p th:text="${interns.size()}"></p>
+                </div>
+                
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Performance Score</th>
+                        <th>Task Progress</th>
+                        <th>Feedback</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Loop through mentorList -->
+                    <tr th:each="intern : ${interns}">
+                    <td th:text="${intern.id}"></td>
+                    <td th:text="${intern.name}"></td>
+                    <td th:text="${intern.performanceScore}"></td>
+                    <td th:text="${intern.taskProgress}"></td>
+                    <td>
+                        <form th:action="@{/submitFeedback}" method="post">
+                            <input type="hidden" name="internId" th:value="${intern.id}">
+                            <textarea name="feedback" placeholder="Enter Feedback Here"></textarea>
+                            <button type="submit">Submit Feedback</button>
+                        </form>
+                    </td>
+                    <th></th>
+
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>
