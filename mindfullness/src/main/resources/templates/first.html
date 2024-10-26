@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User Preferences</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7fa;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #4a90e2;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #4a90e2;
+            color: white;
+        }
+        td {
+            background-color: #f9f9f9;
+        }
+        select {
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+        }
+        button {
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #357ab8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>User Preferences</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Activity</th>
+                    <th>Description</th>
+                    <th>Frequency</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="preference : ${userpreference}">
+                    <td th:text="${preference.activity}"></td>
+                    <td th:text="${preference.description}"></td>
+                    <td>
+                        <form th:action="@{/updateFrequency}" method="post">
+                            <select name="frequency">
+                                <option value="" disabled selected>Select</option>
+                                <option value="Daily" th:selected="${preference.frequency == 'Daily'}">Daily</option>
+                                <option value="3 times a week" th:selected="${preference.frequency == '3 times a week'}">3 times a week</option>
+                                <option value="Weekly" th:selected="${preference.frequency == 'Weekly'}">Weekly</option>
+                                <option value="Monthly" th:selected="${preference.frequency == 'Monthly'}">Monthly</option>
+                            </select>
+                            <input type="hidden" name="id" th:value="${preference.id}" />
+                            <button type="submit">Update</button>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
