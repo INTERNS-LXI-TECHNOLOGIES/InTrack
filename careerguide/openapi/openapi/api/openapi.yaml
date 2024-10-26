@@ -1,0 +1,45 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+- description: Generated server url
+  url: http://localhost:8081
+paths:
+  /read:
+    get:
+      operationId: readQuestions
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                items:
+                  $ref: '#/components/schemas/QuestionEntity'
+                type: array
+          description: OK
+      tags:
+      - question-controller
+      x-accepts:
+      - '*/*'
+components:
+  schemas:
+    QuestionEntity:
+      example:
+        questions: questions
+        answers: answers
+        questionNumber: 0
+        points: 6
+      properties:
+        questionNumber:
+          format: int64
+          type: integer
+        points:
+          format: int32
+          type: integer
+        questions:
+          type: string
+        answers:
+          type: string
+      type: object
+

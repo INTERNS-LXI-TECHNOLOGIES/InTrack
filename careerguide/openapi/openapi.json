@@ -1,0 +1,61 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "OpenAPI definition",
+        "version": "v0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8081",
+            "description": "Generated server url"
+        }
+    ],
+    "paths": {
+        "/read": {
+            "get": {
+                "tags": [
+                    "question-controller"
+                ],
+                "operationId": "readQuestions",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/QuestionEntity"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "QuestionEntity": {
+                "type": "object",
+                "properties": {
+                    "questionNumber": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "points": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "questions": {
+                        "type": "string"
+                    },
+                    "answers": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}
