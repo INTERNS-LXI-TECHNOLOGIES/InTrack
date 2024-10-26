@@ -106,7 +106,18 @@
             padding: 10px 15px;
             background-color: #4CAF50;
             color: white;
+            text-align: center;
+        }
+
+        .clear-button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 15px;
+            background-color: #f44336;
+            color: white;
             border: none;
+            border-radius: 5px;
+            cursor: pointer;
             text-align: center;
         }
     </style>    
@@ -120,6 +131,10 @@
     <h1>REPORTING DATA</h1>
 
     <button onclick="openModal()" class="filter-button">Filter Option</button>
+
+    <form th:action="@{/get}" method="get">
+        <button type="submit" class="clear-button">Clear Filters</button>
+    </form>
 
     <div id="filterModal" class="modal">
         <div class="modal-content">
