@@ -1,0 +1,70 @@
+<jasperReport name="Users" language="java" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="123e4567-e89b-12d3-a456-426614174000">
+    <field name="id" class="java.lang.Long"/>
+    <field name="name" class="java.lang.String"/>
+    <field name="age" class="java.lang.Integer"/>
+    <field name="city" class="java.lang.String"/>
+    <field name="email" class="java.lang.String"/>
+
+    <background/>
+    <title height="72">
+        <element kind="frame" uuid="123e4567-e89b-12d3-a456-426614174001" mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699">
+            <element kind="staticText" uuid="123e4567-e89b-12d3-a456-426614174002" x="20" y="20" width="234" height="43" forecolor="#FFFFFF" fontSize="34.0" bold="true">
+                <text><![CDATA[Jasper Users]]></text>
+            </element>
+            <element kind="staticText" uuid="123e4567-e89b-12d3-a456-426614174003" x="395" y="43" width="180" height="20" forecolor="#FFFFFF" fontSize="14.0" bold="false" hTextAlign="Right">
+                <text><![CDATA[Users List]]></text>
+            </element>
+        </element>
+    </title>
+    <pageHeader height="13"/>
+    <columnHeader height="21">
+        <element kind="line" uuid="123e4567-e89b-12d3-a456-426614174004" x="-20" y="20" width="595" height="1" forecolor="#666666"/>
+        <element kind="staticText" uuid="123e4567-e89b-12d3-a456-426614174005" mode="Opaque" x="0" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" fontSize="14.0" bold="true" hTextAlign="Center">
+            <text><![CDATA[ID]]></text>
+        </element>
+        <element kind="staticText" uuid="123e4567-e89b-12d3-a456-426614174006" mode="Opaque" x="111" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" fontSize="14.0" bold="true" hTextAlign="Center">
+            <text><![CDATA[FIRSTNAME]]></text>
+        </element>
+        <element kind="staticText" uuid="123e4567-e89b-12d3-a456-426614174007" mode="Opaque" x="222" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" fontSize="14.0" bold="true" hTextAlign="Center">
+            <text><![CDATA[LASTNAME]]></text>
+        </element>
+        <element kind="staticText" uuid="123e4567-e89b-12d3-a456-426614174008" mode="Opaque" x="333" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" fontSize="14.0" bold="true" hTextAlign="Center">
+            <text><![CDATA[STREET]]></text>
+        </element>
+        <element kind="staticText" uuid="123e4567-e89b-12d3-a456-426614174009" mode="Opaque" x="444" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" fontSize="14.0" bold="true" hTextAlign="Center">
+            <text><![CDATA[CITY]]></text>
+        </element>
+    </columnHeader>
+    <detail>
+        <band height="20">
+            <element kind="line" uuid="123e4567-e89b-12d3-a456-426614174010" positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1"/>
+            <element kind="textField" uuid="123e4567-e89b-12d3-a456-426614174011" x="0" y="0" width="111" height="20" fontSize="14.0" textAdjust="StretchHeight">
+                <expression><![CDATA[$F{id}]]></expression>
+            </element>
+            <element kind="textField" uuid="123e4567-e89b-12d3-a456-426614174012" x="111" y="0" width="111" height="20" fontSize="14.0" textAdjust="StretchHeight">
+                <expression><![CDATA[$F{name}]]></expression>
+            </element>
+            <element kind="textField" uuid="123e4567-e89b-12d3-a456-426614174013" x="222" y="0" width="111" height="20" fontSize="14.0" textAdjust="StretchHeight">
+                <expression><![CDATA[$F{age}]]></expression>
+            </element>
+            <element kind="textField" uuid="123e4567-e89b-12d3-a456-426614174014" x="333" y="0" width="111" height="20" fontSize="14.0" textAdjust="StretchHeight">
+                <expression><![CDATA[$F{city}]]></expression>
+            </element>
+            <element kind="textField" uuid="123e4567-e89b-12d3-a456-426614174015" x="444" y="0" width="111" height="20" fontSize="14.0" textAdjust="StretchHeight">
+                <expression><![CDATA[$F{email}]]></expression>
+            </element>
+        </band>
+    </detail>
+    <pageFooter height="17">
+        <element kind="textField" uuid="123e4567-e89b-12d3-a456-426614174016" mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" hTextAlign="Right">
+            <expression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></expression>
+        </element>
+        <element kind="textField" uuid="123e4567-e89b-12d3-a456-426614174017" mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" evaluationTime="Report">
+            <expression><![CDATA[" " + $V{PAGE_NUMBER}]]></expression>
+        </element>
+        <element kind="textField" uuid="123e4567-e89b-12d3-a456-426614174018" x="0" y="4" width="100" height="13" pattern="EEEEE dd MMMMM yyyy">
+            <expression><![CDATA[new java.util.Date()]]></expression>
+        </element>
+    </pageFooter>
+    <summary/>
+</jasperReport>
