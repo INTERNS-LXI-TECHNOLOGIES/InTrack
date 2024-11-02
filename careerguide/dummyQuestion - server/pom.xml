@@ -65,11 +65,9 @@
 			<version>2.6.0</version>
 		</dependency>
 
-	<dependency>
-			<groupId>org.openapitools</groupId>
-			<artifactId>openapi-java-client-dummyq</artifactId>
-			<version>1.0</version>
-		</dependency>
+		
+
+	
 	</dependencies>
 
 	<build>

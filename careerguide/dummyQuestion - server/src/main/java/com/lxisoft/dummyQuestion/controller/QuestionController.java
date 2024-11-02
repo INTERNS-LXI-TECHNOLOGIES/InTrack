@@ -15,13 +15,9 @@ public class QuestionController{
 @Autowired
 private QuestionService questionService;
 
-@GetMapping("/read")
-public List<QuestionEntity> readQuestions(){
+    @GetMapping("/read")
+    public List<QuestionEntity> readQuestions(){
 
-    return questionService.getQuestions();
-
-}
-
-
-    
+        return questionService.getQuestions();
+    }
 }
