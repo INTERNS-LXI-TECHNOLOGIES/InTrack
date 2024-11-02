@@ -5,11 +5,9 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.divisosoft.SecurityAuthentication.model.Intern;
@@ -35,16 +33,28 @@ public class InternController {
     }
 
    @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody Map<String, String> loginData) {
-        String email = loginData.get("email");
-        String password = loginData.get("password");
+public ResponseEntity<String> login(@RequestBody Map<String, String> loginData) {
+    String email = loginData.get("email");
+    String password = loginData.get("password");
+
+    // Find intern by email
+    Intern intern = internService.findByEmail(email);
+
+    // Check if the intern exists and the password matches
+    if (intern != null && intern.getPassword().equals(password)) {
+        // Generate OTP
+        String otp = internService.generateOTP();
         
-        if(internService.login(email, password)) {
-            return ResponseEntity.ok("Login successful");
-        } else {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid email or password");
-        }
+        // Send OTP via email
+        emailService.sendOTP(intern.getEmail(), otp);
+        
+        return ResponseEntity.ok("OTP has been sent to your email.");
+    } else {
+        
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials!");
     }
+}
+
 
         
 
