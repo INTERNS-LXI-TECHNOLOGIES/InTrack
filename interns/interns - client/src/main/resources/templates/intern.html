@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Intern List</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Intern List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Thymeleaf loop to iterate through interns and display their details -->
+            <tr th:each="intern : ${interns}">
+                <td th:text="${intern.id}"></td>
+                <td th:text="${intern.name}"></td>
+                <td th:text="${intern.emailid}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

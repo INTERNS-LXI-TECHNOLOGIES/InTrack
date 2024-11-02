@@ -1,0 +1,111 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+- description: Generated server url
+  url: http://localhost:8082
+paths:
+  /rest/interns/updateIntern/{id}:
+    put:
+      operationId: updateIntern
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: int64
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InternEntity'
+        required: true
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/InternEntity'
+          description: OK
+      tags:
+      - interns-controller
+      x-content-type: application/json
+      x-accepts:
+      - '*/*'
+  /rest/interns/addInterns:
+    post:
+      operationId: addInterns
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InternEntity'
+        required: true
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/InternEntity'
+          description: OK
+      tags:
+      - interns-controller
+      x-content-type: application/json
+      x-accepts:
+      - '*/*'
+  /rest/interns/getAll:
+    get:
+      operationId: getAll
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                items:
+                  $ref: '#/components/schemas/InternEntity'
+                type: array
+          description: OK
+      tags:
+      - interns-controller
+      x-accepts:
+      - '*/*'
+  /rest/interns/deleteIntern/{id}:
+    delete:
+      operationId: deleteIntern
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: int64
+          type: integer
+        style: simple
+      responses:
+        "200":
+          description: OK
+      tags:
+      - interns-controller
+      x-accepts:
+      - application/json
+components:
+  schemas:
+    InternEntity:
+      example:
+        name: name
+        emailid: emailid
+        id: 0
+      properties:
+        id:
+          format: int64
+          type: integer
+        name:
+          type: string
+        emailid:
+          type: string
+      type: object
+
