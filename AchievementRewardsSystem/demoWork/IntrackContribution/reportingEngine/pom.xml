@@ -6,7 +6,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.3.4</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath/>
 	</parent>
 	<groupId>com.lxisoft.intrackContribution</groupId>
 	<artifactId>reportingEngine</artifactId>
@@ -65,20 +65,30 @@
     <artifactId>spring-boot-starter-thymeleaf</artifactId>
 </dependency>
 
-<!-- https://mvnrepository.com/artifact/com.itextpdf/itextpdf -->
+		<!-- https://mvnrepository.com/artifact/net.sf.jasperreports/jasperreports -->
 <dependency>
-    <groupId>com.itextpdf</groupId>
-    <artifactId>itextpdf</artifactId>
-    <version>5.5.13.4</version>
+    <groupId>net.sf.jasperreports</groupId>
+    <artifactId>jasperreports</artifactId>
+    <version>7.0.1</version>
 </dependency>
 
+<dependency>
+    <groupId>net.sf.jasperreports</groupId>
+    <artifactId>jasperreports-fonts</artifactId>
+    <version>7.0.1</version>
+</dependency>
 
+<dependency>
+    <groupId>net.sf.jasperreports</groupId>
+    <artifactId>jasperreports-pdf</artifactId>
+    <version>7.0.1</version>
+</dependency>
 
 <dependency>
 
   <groupId>org.openapitools</groupId>
   <artifactId>openapi-java-client-bsc</artifactId>
-  <version>1.0</version> <!-- Make sure this version matches what you installed -->
+  <version>1.0</version> 
  </dependency>
 	</dependencies>
 

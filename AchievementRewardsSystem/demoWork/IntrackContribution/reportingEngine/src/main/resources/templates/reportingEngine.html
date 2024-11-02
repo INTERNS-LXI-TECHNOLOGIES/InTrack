@@ -1,35 +1,45 @@
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Users Report</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
+            color: #333;
             margin: 0;
             padding: 20px;
+            background-size: cover; /* Adjust to cover the whole background */
+            background-repeat: no-repeat;
+            background-attachment: fixed; /* Keeps background fixed while scrolling */
+            background-position: center;
         }
     
-        h1 ,h2{
+        h1 {
             text-align: center;
             color: #333;
-            font-size: 2em;
-            margin-bottom: 15px;
+            font-size: 2.5em;
+            margin: 20px 0;
+            letter-spacing: 1px;
         }
-    
+
         table {
-            width: 80%;
-            margin: 0 auto;
+            width: 90%;
+            margin: 20px auto;
             border-collapse: collapse;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            background-color: white;
             font-size: 0.9em;
         }
     
         thead {
-            background-color: #4CAF50;
+            background-color: #3498db;
             color: white;
+            text-transform: uppercase;
         }
     
         th, td {
-            padding: 8px 10px;
+            padding: 12px 15px;
             text-align: left;
             border-bottom: 1px solid #ddd;
         }
@@ -37,31 +47,59 @@
         tr:nth-child(even) {
             background-color: #f2f2f2;
         }
-    
-        td:nth-child(5), td:nth-child(6) {
-            width: 120px;
+
+        .filter-button, .clear-button, .apply-filters {
+            display: inline-block;
+            margin: 10px auto;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .clear-button {
+            background-color: #e74c3c;
+        }
+
+        .filter-button:hover, .clear-button:hover, .apply-filters:hover {
+            background-color: #2980b9;
         }
 
         .modal {
-            display: none; /* Hidden by default */
-            position: fixed; /* Stay in place */
-            z-index: 1; /* Sit on top */
+            display: none;
+            position: fixed;
+            z-index: 1;
             left: 0;
             top: 0;
-            width: 100%; /* Full width */
-            height: 100%; /* Full height */
-            overflow: auto; /* Enable scroll if needed */
-            background-color: rgb(0,0,0); /* Fallback color */
-            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-            padding-top: 60px; /* Location of the box */
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
         }
 
         .modal-content {
             background-color: #fefefe;
-            margin: 5% auto;
+            margin: 10% auto;
             padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
+            border-radius: 8px;
+            width: 70%;
+            max-width: 600px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .close-button {
+            background-color: #e74c3c;
+            border: none;
+            color: white;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
         }
 
         @media (max-width: 768px) {
@@ -69,86 +107,59 @@
                 display: block;
                 width: 100%;
             }
-    
             thead {
                 display: none;
             }
-    
             td {
                 text-align: right;
                 padding-left: 50%;
                 position: relative;
             }
-    
             td:before {
                 content: attr(th);
                 position: absolute;
-                left: 0;
-                width: 45%;
-                padding-left: 15px;
+                left: 10px;
                 font-weight: bold;
-                text-align: left;
             }
         }
-        .filter-button {
-            display: block;
-            margin: 0 auto 20px;
-            padding: 10px 15px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .apply-filters {
-            display: block;
-            margin: 20px auto;
-            padding: 10px 15px;
-            background-color: #4CAF50;
-            color: white;
-            text-align: center;
-        }
-
-        .clear-button {
-            display: block;
-            margin: 20px auto;
-            padding: 10px 15px;
-            background-color: #f44336;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-align: center;
-        }
-    </style>    
+    </style>
+    
     <script>
         function openModal() {
             document.getElementById("filterModal").style.display = "block";
         }
+
+        function closeModal() {
+            document.getElementById("filterModal").style.display = "none";
+        }
     </script>
 </head>
 <body>
-    <h1>REPORTING DATA</h1>
+    <h1>Reporting Data</h1>
 
-    <button onclick="openModal()" class="filter-button">Filter Option</button>
-
-    <form th:action="@{/get}" method="get">
+    <button onclick="openModal()" class="filter-button">Filter Options</button>
+    <form th:action="@{/get}" method="get" style="display: inline;">
         <button type="submit" class="clear-button">Clear Filters</button>
     </form>
 
+    <div th:if="${message}" style="color: green; text-align: center;">
+        <strong th:text="${message}"></strong>
+    </div>
+
     <div id="filterModal" class="modal">
         <div class="modal-content">
-            <h2>FILTER OPTION</h2>
-            <form th:action="@{/get}" method="get" style="text-align: center;">
-                <label for="nameFilter">Filter by Name (Starts with):</label>
-                <input type="text" id="nameFilter" name="nameFilter" placeholder="Enter starting letter" />
+            <span onclick="closeModal()" class="close-button">Close</span>
+            <h2>Filter Options</h2>
+            <form th:action="@{/get}" method="get">
+                <label for="nameFilter">Filter by Name (Starts with):</label><br>
+                <input type="text" id="nameFilter" name="nameFilter" placeholder="Enter starting letter" /><br><br>
 
-                <label for="scoreOrder">Choose Score Order:</label>
+                <label for="scoreOrder">Choose Score Order:</label><br>
                 <select id="scoreOrder" name="scoreOrder">
                     <option value="none">None</option>
                     <option value="highest">Highest Score</option>
                     <option value="lowest">Lowest Score</option>
-                </select>
+                </select><br><br>
 
                 <button type="submit" class="apply-filters">Apply Filters</button>
             </form>

@@ -1,0 +1,108 @@
+<jasperReport name="BSCReport" language="java" pageWidth="1000" pageHeight="595" columnWidth="960" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="123e4567-e89b-12d3-a456-426614174000">
+    <field name="id" class="java.lang.Long"/>
+    <field name="rankPosition" class="java.lang.Integer"/>
+    <field name="name" class="java.lang.String"/>
+    <field name="emailId" class="java.lang.String"/>
+    <field name="aadhaarNumber" class="java.lang.String"/>
+    <field name="pan" class="java.lang.String"/>
+    <field name="totalAnalizedScore" class="java.lang.String"/>
+    <field name="physicalScore" class="java.lang.String"/>
+    <field name="mentalInvolvement" class="java.lang.String"/>
+    <field name="socialInvolvement" class="java.lang.String"/>
+    <field name="spiritualInvolvement" class="java.lang.String"/>
+    <field name="rewardsEarned" class="java.lang.String"/>
+
+    <background/>
+    <title height="72">
+        <element kind="frame" uuid="123e4567-e89b-12d3-a456-426614174001" mode="Opaque" x="-20" y="-20" width="1000" height="92" backcolor="#006699">
+            <element kind="staticText" uuid="123e4567-e89b-12d3-a456-426614174002" x="20" y="20" width="300" height="43" forecolor="#FFFFFF" fontSize="34.0" bold="true">
+                <text><![CDATA[BSC Performance Report]]></text>
+            </element>
+            <element kind="staticText" uuid="123e4567-e89b-12d3-a456-426614174003" x="700" y="43" width="280" height="20" forecolor="#FFFFFF" fontSize="14.0" bold="false" hTextAlign="Right">
+                <text><![CDATA[Users Report]]></text>
+            </element>
+        </element>
+    </title>
+    <pageHeader height="13"/>
+    <columnHeader height="21">
+        <element kind="line" uuid="123e4567-e89b-12d3-a456-426614174004" x="-20" y="20" width="1000" height="1" forecolor="#666666"/>
+        <!-- Define each column header with adjusted widths -->
+        <element kind="staticText" x="0" y="0" width="50" height="20" forecolor="#006699" backcolor="#E6E6E6" fontSize="10.0" bold="true" hTextAlign="Center">
+            <text><![CDATA[ID]]></text>
+        </element>
+        <element kind="staticText" x="50" y="0" width="60" height="20" forecolor="#006699" backcolor="#E6E6E6" fontSize="10.0" bold="true" hTextAlign="Center">
+            <text><![CDATA[Rank Position]]></text>
+        </element>
+        <element kind="staticText" x="110" y="0" width="100" height="20" forecolor="#006699" backcolor="#E6E6E6" fontSize="10.0" bold="true" hTextAlign="Center">
+            <text><![CDATA[Name]]></text>
+        </element>
+        <element kind="staticText" x="210" y="0" width="120" height="20" forecolor="#006699" backcolor="#E6E6E6" fontSize="10.0" bold="true" hTextAlign="Center">
+            <text><![CDATA[Email ID]]></text>
+        </element>
+        <element kind="staticText" x="330" y="0" width="90" height="20" forecolor="#006699" backcolor="#E6E6E6" fontSize="10.0" bold="true" hTextAlign="Center">
+            <text><![CDATA[Aadhaar Number]]></text>
+        </element>
+        <element kind="staticText" x="420" y="0" width="80" height="20" forecolor="#006699" backcolor="#E6E6E6" fontSize="10.0" bold="true" hTextAlign="Center">
+            <text><![CDATA[PAN]]></text>
+        </element>
+        <element kind="staticText" x="500" y="0" width="100" height="20" forecolor="#006699" backcolor="#E6E6E6" fontSize="10.0" bold="true" hTextAlign="Center">
+            <text><![CDATA[Total Analyzed Score]]></text>
+        </element>
+        <element kind="staticText" x="600" y="0" width="80" height="20" forecolor="#006699" backcolor="#E6E6E6" fontSize="10.0" bold="true" hTextAlign="Center">
+            <text><![CDATA[Physical Score]]></text>
+        </element>
+        <element kind="staticText" x="680" y="0" width="80" height="20" forecolor="#006699" backcolor="#E6E6E6" fontSize="10.0" bold="true" hTextAlign="Center">
+            <text><![CDATA[Mental Involvement]]></text>
+        </element>
+        <element kind="staticText" x="760" y="0" width="80" height="20" forecolor="#006699" backcolor="#E6E6E6" fontSize="10.0" bold="true" hTextAlign="Center">
+            <text><![CDATA[Social Involvement]]></text>
+        </element>
+        <element kind="staticText" x="840" y="0" width="80" height="20" forecolor="#006699" backcolor="#E6E6E6" fontSize="10.0" bold="true" hTextAlign="Center">
+            <text><![CDATA[Spiritual Involvement]]></text>
+        </element>
+        <element kind="staticText" x="920" y="0" width="80" height="20" forecolor="#006699" backcolor="#E6E6E6" fontSize="10.0" bold="true" hTextAlign="Center">
+            <text><![CDATA[Rewards Earned]]></text>
+        </element>
+    </columnHeader>
+    <detail>
+        <band height="20">
+            <element kind="line" positionType="FixRelativeToBottom" x="0" y="19" width="960" height="1"/>
+            <element kind="textField" x="0" y="0" width="50" height="20" fontSize="10.0">
+                <expression><![CDATA[$F{id}]]></expression>
+            </element>
+            <element kind="textField" x="50" y="0" width="60" height="20" fontSize="10.0">
+                <expression><![CDATA[$F{rankPosition}]]></expression>
+            </element>
+            <element kind="textField" x="110" y="0" width="100" height="20" fontSize="10.0">
+                <expression><![CDATA[$F{name}]]></expression>
+            </element>
+            <element kind="textField" x="210" y="0" width="120" height="20" fontSize="10.0">
+                <expression><![CDATA[$F{emailId}]]></expression>
+            </element>
+            <element kind="textField" x="330" y="0" width="90" height="20" fontSize="10.0">
+                <expression><![CDATA[$F{aadhaarNumber}]]></expression>
+            </element>
+            <element kind="textField" x="420" y="0" width="80" height="20" fontSize="10.0">
+                <expression><![CDATA[$F{pan}]]></expression>
+            </element>
+            <element kind="textField" x="500" y="0" width="100" height="20" fontSize="10.0">
+                <expression><![CDATA[$F{totalAnalizedScore}]]></expression>
+            </element>
+            <element kind="textField" x="600" y="0" width="80" height="20" fontSize="10.0">
+                <expression><![CDATA[$F{physicalScore}]]></expression>
+            </element>
+            <element kind="textField" x="680" y="0" width="80" height="20" fontSize="10.0">
+                <expression><![CDATA[$F{mentalInvolvement}]]></expression>
+            </element>
+            <element kind="textField" x="760" y="0" width="80" height="20" fontSize="10.0">
+                <expression><![CDATA[$F{socialInvolvement}]]></expression>
+            </element>
+            <element kind="textField" x="840" y="0" width="80" height="20" fontSize="10.0">
+                <expression><![CDATA[$F{spiritualInvolvement}]]></expression>
+            </element>
+            <element kind="textField" x="920" y="0" width="80" height="20" fontSize="10.0">
+                <expression><![CDATA[$F{rewardsEarned}]]></expression>
+            </element>
+        </band>
+    </detail>
+</jasperReport>
