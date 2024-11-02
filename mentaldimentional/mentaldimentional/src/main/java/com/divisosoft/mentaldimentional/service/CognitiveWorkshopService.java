@@ -18,24 +18,6 @@ public class CognitiveWorkshopService {
     @Autowired
     private CognitiveWorkshopRepository workshopRepository;
 
-    public List<org.openapitools.client.model.CognitiveWorkshop> getAllResources() {
-
-        ApiClient apiClient = new ApiClient();
-        apiClient.setBasePath("http://localhost:8081");
-        CognitiveWorkshopControllerApi myResourceApi = new CognitiveWorkshopControllerApi(apiClient);
-        List<org.openapitools.client.model.CognitiveWorkshop> cognitiveWorkshopList = new ArrayList<>();
-        try {
-            cognitiveWorkshopList = myResourceApi.getAllWorkshops();
-        } catch (ApiException e) {
-            System.out.println("CognitiveWorkshop exception" + e.getMessage());
-        } catch (Exception e) {
-            System.out.println("CognitiveWorkshop exception" + e.getMessage());
-        }
-
-        return cognitiveWorkshopList;
-
-    }
-
     // Retrieve all workshops
     public List<CognitiveWorkshop> getAllWorkshops() {
         return workshopRepository.findAll();
