@@ -1,0 +1,108 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+- description: Generated server url
+  url: http://localhost:8080
+paths:
+  /Interns/{id}:
+    delete:
+      operationId: deleteIntern
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: int64
+          type: integer
+        style: simple
+      responses:
+        "200":
+          description: OK
+      tags:
+      - intern-controller
+      x-accepts:
+      - application/json
+    put:
+      operationId: updateIntern
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: int64
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Intern'
+        required: true
+      responses:
+        "200":
+          description: OK
+      tags:
+      - intern-controller
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /Interns:
+    get:
+      operationId: getAllIntern
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                items:
+                  $ref: '#/components/schemas/Intern'
+                type: array
+          description: OK
+      tags:
+      - intern-controller
+      x-accepts:
+      - '*/*'
+    post:
+      operationId: saveIntern
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Intern'
+        required: true
+      responses:
+        "200":
+          description: OK
+      tags:
+      - intern-controller
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+components:
+  schemas:
+    Intern:
+      example:
+        internid: 0
+        joinDate: 2000-01-23T04:56:07.000+00:00
+        level: level
+        name: name
+        email: email
+      properties:
+        internid:
+          format: int64
+          type: integer
+        name:
+          type: string
+        level:
+          type: string
+        email:
+          type: string
+        joinDate:
+          format: date-time
+          type: string
+      type: object
+
