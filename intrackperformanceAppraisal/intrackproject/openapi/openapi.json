@@ -1,0 +1,510 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "OpenAPI definition",
+        "version": "v0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8081",
+            "description": "Generated server url"
+        }
+    ],
+    "paths": {
+        "/task": {
+            "post": {
+                "tags": [
+                    "task-completion-controller"
+                ],
+                "operationId": "createtaskcompltion",
+                "parameters": [
+                    {
+                        "name": "internId",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TaskCompletion"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TaskCompletion"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/interns": {
+            "get": {
+                "tags": [
+                    "intern-controller"
+                ],
+                "operationId": "getAllInterns",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Intern"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "intern-controller"
+                ],
+                "operationId": "createIntern",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Intern"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Intern"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/feedback": {
+            "post": {
+                "tags": [
+                    "feedback-controller"
+                ],
+                "operationId": "createFeedbacks",
+                "parameters": [
+                    {
+                        "name": "internId",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/Feedback"
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Feedback"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/attendance": {
+            "post": {
+                "tags": [
+                    "attendance-controller"
+                ],
+                "operationId": "createAttendance",
+                "parameters": [
+                    {
+                        "name": "internId",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Attendance"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Attendance"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/task/{internId}": {
+            "get": {
+                "tags": [
+                    "task-completion-controller"
+                ],
+                "operationId": "getTaskCompletionByInternId",
+                "parameters": [
+                    {
+                        "name": "internId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TaskCompletionDto"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/interns/{internId}": {
+            "get": {
+                "tags": [
+                    "intern-controller"
+                ],
+                "operationId": "getInternById",
+                "parameters": [
+                    {
+                        "name": "internId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Intern"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "intern-controller"
+                ],
+                "operationId": "deleteIntern",
+                "parameters": [
+                    {
+                        "name": "internId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/interns/{internId}/history": {
+            "get": {
+                "tags": [
+                    "intern-controller"
+                ],
+                "operationId": "getInternHistory",
+                "parameters": [
+                    {
+                        "name": "internId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/InternHistoryDTO"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/feedback/{internId}": {
+            "get": {
+                "tags": [
+                    "feedback-controller"
+                ],
+                "operationId": "getFeedbackByInternId",
+                "parameters": [
+                    {
+                        "name": "internId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/FeedbackDto"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/attendance/{internId}": {
+            "get": {
+                "tags": [
+                    "attendance-controller"
+                ],
+                "operationId": "getAttendanceByInternId",
+                "parameters": [
+                    {
+                        "name": "internId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AttendanceDto"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Intern": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "name": {
+                        "type": "string"
+                    }
+                }
+            },
+            "TaskCompletion": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "taskName": {
+                        "type": "string"
+                    },
+                    "completed": {
+                        "type": "boolean"
+                    },
+                    "completionDate": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "intern": {
+                        "$ref": "#/components/schemas/Intern"
+                    }
+                }
+            },
+            "Feedback": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "comment": {
+                        "type": "string"
+                    },
+                    "rating": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "intern": {
+                        "$ref": "#/components/schemas/Intern"
+                    }
+                }
+            },
+            "Attendance": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "date": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "present": {
+                        "type": "boolean"
+                    },
+                    "intern": {
+                        "$ref": "#/components/schemas/Intern"
+                    }
+                }
+            },
+            "TaskCompletionDto": {
+                "type": "object",
+                "properties": {
+                    "completionPercentage": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "taskCompletionList": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/TaskCompletion"
+                        }
+                    }
+                }
+            },
+            "AttendanceDto": {
+                "type": "object",
+                "properties": {
+                    "attendanceList": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Attendance"
+                        }
+                    },
+                    "attendancePercentage": {
+                        "type": "number",
+                        "format": "double"
+                    }
+                }
+            },
+            "FeedbackDto": {
+                "type": "object",
+                "properties": {
+                    "feedbackList": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Feedback"
+                        }
+                    },
+                    "averageRating": {
+                        "type": "number",
+                        "format": "double"
+                    }
+                }
+            },
+            "InternHistoryDTO": {
+                "type": "object",
+                "properties": {
+                    "intern": {
+                        "$ref": "#/components/schemas/Intern"
+                    },
+                    "attendanceRecords": {
+                        "$ref": "#/components/schemas/AttendanceDto"
+                    },
+                    "taskCompletions": {
+                        "$ref": "#/components/schemas/TaskCompletionDto"
+                    },
+                    "feedbacks": {
+                        "$ref": "#/components/schemas/FeedbackDto"
+                    }
+                }
+            }
+        }
+    }
+}
