@@ -1,0 +1,20 @@
+{
+  "name": "Spring Boot with MySQL",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspace",
+  "features": {
+    "docker-in-docker": "latest"
+  },
+  "extensions": [
+    "vscjava.vscode-spring-initializr",
+    "vscjava.vscode-spring-boot",
+    "vscjava.vscode-maven",
+    "vscjava.vscode-java-pack",
+    "ms-azuretools.vscode-docker"
+  ],
+  "postCreateCommand": "mvn clean install",
+  "settings": {
+    "terminal.integrated.defaultProfile.linux": "/bin/bash"
+  }
+}
