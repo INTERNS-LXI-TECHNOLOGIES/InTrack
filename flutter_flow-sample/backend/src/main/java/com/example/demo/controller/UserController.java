@@ -36,8 +36,8 @@ public class UserController {
                         }
 
                                 @GetMapping("/name/{name}")
-                                public User geUserByName(@PathVariable String name){
-                                Optional<User> user = userService.getUserByName(name);
+                                public User geUserByName(@PathVariable String firstName,String secondName){
+                                Optional<User> user = userService.getUserByName(firstName,secondName);
                                 return user.orElse(null);
                                 }
 

@@ -55,15 +55,16 @@ public List<org.openapitools.client.model.User> getInterns() {
                         return userRepo.findById(id);
 
                     }
-                            public Optional<User>getUserByName(String name){
-                                return userRepo.findByName(name);
+                            public Optional<User>getUserByName(String firstName,String secondName){
+                                return userRepo.findByFirstNameAndSecondName(firstName,secondName);
                             }
 
                                         public User updateUser(Long id, User updatedUser){
                                         Optional<User> optionalUser = userRepo.findById(id);
                                         if(optionalUser.isPresent()){
                                         User existingUser = optionalUser.get();
-                                        existingUser.setName(updatedUser.getName());
+                                        existingUser.setFirstName(updatedUser.getFirstName());
+                                        existingUser.setSecondName(updatedUser.getSecondName());
                                         existingUser.setEmail(updatedUser.getEmail());
                                         return userRepo.save(existingUser);
                                             }

@@ -7,6 +7,6 @@ import com.example.demo.model.User;
 @Repository
 
 public interface UserRepo extends JpaRepository<User,Long>{
-    Optional<User> findByName(String name);
+    Optional<User> findByFirstNameAndSecondName(String firstName, String secondName);
 
 }
