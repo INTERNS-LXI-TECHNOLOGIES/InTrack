@@ -8,4 +8,9 @@ class Contact {
     numbers.add(number);
     badgeIds.add(badgeId);
   }
+    static void deleteUser(String username, String number, String badgeId) {
+    usernames.remove(username);
+    numbers.remove(number);
+    badgeIds.remove(badgeId);
+  }
 }

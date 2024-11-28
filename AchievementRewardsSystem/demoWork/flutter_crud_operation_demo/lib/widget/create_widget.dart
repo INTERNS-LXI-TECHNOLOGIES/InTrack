@@ -201,7 +201,7 @@ class _CreateWidgetState extends State<CreateWidget> {
                                       autofocus: false,
                                       obscureText: false,
                                       decoration: InputDecoration(
-                                        labelText: 'Number',
+                                        labelText: 'Mobile Number',
                                         labelStyle: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -356,7 +356,7 @@ class _CreateWidgetState extends State<CreateWidget> {
                                           badgeId.isNotEmpty) {
                                         Contact.addContact(
                                             username, number, badgeId);
-
+                                           
                                         // Debugging: Print the added contacts
                                         print('Usernames: ${Contact.usernames}');
                                         print('Numbers: ${Contact.numbers}');

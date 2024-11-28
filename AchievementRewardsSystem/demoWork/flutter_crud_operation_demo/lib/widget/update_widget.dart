@@ -4,9 +4,10 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 //import 'package:google_fonts/google_fonts.dart';
 //import 'package:provider/provider.dart';
+import '../model/contact.dart';
 
-import '/model/update_model.dart';
-export '/model/update_model.dart';
+import '../model/update_model.dart';
+export '../model/update_model.dart';
 
 class UpdateWidget extends StatefulWidget {
   const UpdateWidget({super.key});
@@ -45,6 +46,39 @@ class _UpdateWidgetState extends State<UpdateWidget> {
     super.dispose();
   }
 
+  deleteContact(){
+        final usernameToBeDeleted = _model.textController1.text;
+
+    if (usernameToBeDeleted.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text('Please enter a username')),
+      );
+       return;
+    }
+
+    int index = Contact.usernames.indexOf(usernameToBeDeleted);
+
+    if (index == -1) {
+      ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(content: Text('No user found')),
+      );
+    } else {
+
+      String numberToBeDeleted = Contact.numbers[index];
+      String badgeIdToBeDeleted = Contact.badgeIds[index];
+
+      Contact.deleteUser(
+          usernameToBeDeleted,
+          numberToBeDeleted,
+            badgeIdToBeDeleted,
+      );
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text('User deleted before updating')),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -58,7 +92,7 @@ class _UpdateWidgetState extends State<UpdateWidget> {
           title: Text(
             'Update User',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'Inter Tight',
+                  fontFamily: 'Readex Pro',
                   color: Colors.white,
                   fontSize: 22.0,
                   letterSpacing: 0.0,
@@ -95,18 +129,18 @@ class _UpdateWidgetState extends State<UpdateWidget> {
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             Text(
-                              'Update User Details',
+                              'Find Existing User',
                               style: FlutterFlowTheme.of(context)
                                   .headlineSmall
                                   .override(
-                                    fontFamily: 'Inter Tight',
+                                    fontFamily: 'Readex Pro',
                                     color: FlutterFlowTheme.of(context)
                                         .primaryText,
                                     letterSpacing: 0.0,
                                   ),
                             ),
                             Text(
-                              'Enter the name of the user you want to update and provide their new information.',
+                              'Enter the username of the account you want to update.',
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -122,14 +156,14 @@ class _UpdateWidgetState extends State<UpdateWidget> {
                               autofocus: false,
                               obscureText: false,
                               decoration: InputDecoration(
-                                labelText: 'Enter Name to be Updated',
+                                labelText: 'Enter Username',
                                 labelStyle: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Inter',
                                       letterSpacing: 0.0,
                                     ),
-                                hintText: 'Enter existing user name',
+                                hintText: 'Enter existing username',
                                 hintStyle: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -181,6 +215,100 @@ class _UpdateWidgetState extends State<UpdateWidget> {
                               minLines: 1,
                               validator: _model.textController1Validator
                                   .asValidator(context),
+                            ),
+                            FFButtonWidget(
+                              onPressed: () {
+                                print('find Button on update pressed ...');
+                                
+                                final findUserToBeUpdated = _model.textController1.text;
+                                  if (findUserToBeUpdated.isEmpty) {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(content: Text('Please enter a username')),
+                                    );
+                                    return;
+                                  }
+                                int index = Contact.usernames.indexOf(findUserToBeUpdated);
+
+                                  if (index == -1) {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(content: Text('No user found')),
+                                    );
+                                  } else {
+                                      setState(() {
+                                        _model.textController2.text = Contact.usernames[index];
+                                        _model.textController3.text = Contact.numbers[index];
+                                        _model.textController4.text = Contact.badgeIds[index];
+                                      });
+
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(content: Text('User Founded')),
+                                    );
+                                  }
+                              },
+                              text: 'Find User',
+                              options: FFButtonOptions(
+                                width: MediaQuery.sizeOf(context).width * 1.0,
+                                height: 50.0,
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
+                                color: FlutterFlowTheme.of(context).primary,
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .titleSmall
+                                    .override(
+                                      fontFamily: 'Inter',
+                                      color: FlutterFlowTheme.of(context).info,
+                                      letterSpacing: 0.0,
+                                    ),
+                                elevation: 2.0,
+                                borderRadius: BorderRadius.circular(25.0),
+                              ),
+                            ),
+                          ].divide(SizedBox(height: 20.0)),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Material(
+                    color: Colors.transparent,
+                    elevation: 2.0,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12.0),
+                    ),
+                    child: Container(
+                      width: MediaQuery.sizeOf(context).width * 1.0,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                        borderRadius: BorderRadius.circular(12.0),
+                      ),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            24.0, 24.0, 24.0, 24.0),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Text(
+                              'Update Information',
+                              style: FlutterFlowTheme.of(context)
+                                  .headlineSmall
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    letterSpacing: 0.0,
+                                  ),
+                            ),
+                            Text(
+                              'Modify the user details below.',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Inter',
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryText,
+                                    letterSpacing: 0.0,
+                                  ),
                             ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
@@ -410,9 +538,31 @@ class _UpdateWidgetState extends State<UpdateWidget> {
                             ),
                             FFButtonWidget(
                               onPressed: () {
-                                print('Button pressed ...');
+                                print('update user Button pressed ...');
+                                    final nameToUpdate = _model.textController2.text;
+                                    final numberToUpdate = _model.textController3.text;
+                                    final badgeIdToUpdate = _model.textController4.text;
+                                  
+                                  deleteContact();
+                                  
+                                      if (nameToUpdate.isNotEmpty &&
+                                          numberToUpdate.isNotEmpty &&
+                                          badgeIdToUpdate.isNotEmpty) {
+                                        Contact.addContact(
+                                            nameToUpdate, numberToUpdate, badgeIdToUpdate);
+                                        print('Usernames after update: ${Contact.usernames}');
+                                        print('Numbers after update: ${Contact.numbers}');
+                                        print('Badge IDs after update: ${Contact.badgeIds}');
+
+                                         ScaffoldMessenger.of(context)
+                                            .showSnackBar(SnackBar(
+                                          content: Text('User updated successfully!'),
+                                        ));
+                                            }
+                                
+
                               },
-                              text: 'Update User',
+                              text: 'Update Contact',
                               options: FFButtonOptions(
                                 width: MediaQuery.sizeOf(context).width * 1.0,
                                 height: 50.0,
@@ -424,7 +574,7 @@ class _UpdateWidgetState extends State<UpdateWidget> {
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
-                                      fontFamily: 'Inter Tight',
+                                      fontFamily: 'Inter',
                                       color: FlutterFlowTheme.of(context).info,
                                       letterSpacing: 0.0,
                                     ),

@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 //import 'package:google_fonts/google_fonts.dart';
 //import 'package:provider/provider.dart';
+import '../model/contact.dart';
 
 import '../model/delete_model.dart';
 export '../model/delete_model.dart';
@@ -202,9 +203,41 @@ class _DeleteWidgetState extends State<DeleteWidget> {
                               ].divide(SizedBox(height: 16)),
                             ),
                             FFButtonWidget(
-                              onPressed: () {
-                                print('Button pressed ...');
-                              },
+                                onPressed: () {
+                                  print('Button pressed ...');
+                                  final usernameToBeDeleted = _model.textController.text;
+
+                                  if (usernameToBeDeleted.isEmpty) {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(content: Text('Please enter a username')),
+                                    );
+                                    return;
+                                  }
+
+                                  int index = Contact.usernames.indexOf(usernameToBeDeleted);
+
+                                  if (index == -1) {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(content: Text('No user found')),
+                                    );
+                                  } else {
+
+                                    String numberToBeDeleted = Contact.numbers[index];
+                                    String badgeIdToBeDeleted = Contact.badgeIds[index];
+
+                                    Contact.deleteUser(
+                                      usernameToBeDeleted,
+                                      numberToBeDeleted,
+                                      badgeIdToBeDeleted,
+                                    );
+
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(content: Text('User deleted successfully')),
+                                    );
+
+                                    _model.textController?.clear();
+                                  }
+                                },
                               text: 'Delete User',
                               options: FFButtonOptions(
                                 width: MediaQuery.sizeOf(context).width,
